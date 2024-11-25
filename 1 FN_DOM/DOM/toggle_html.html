@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toggle Text</title>
+    <link rel="stylesheet" href="./assets/css/toggle_html_style.css" />
+  </head>
+  <body>
+    <header></header>
+
+    <main>
+      <section id="landing">
+        <div id="toggle-text">
+          <span id="text">Inner HTML</span>
+          <div id="form-con">
+            <form id="toggle-form" action="">
+              <div class="input-item">
+                <label for="new-text">Enter new text:</label>
+                <input type="text" id="new-text" name="new-text" />
+              </div>
+              <div class="input-item">
+                <label>Choose styles:</label>
+                <div class="checkbox-group">
+                  <div>
+                    <input type="checkbox" id="bold" name="style" value="bold" />
+                    <label for="bold">Bold</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="italic" name="style" value="italic" />
+                    <label for="italic">Italic</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="underline" name="style" value="underline" />
+                    <label for="underline">Underline</label>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn">Submit</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer></footer>
+
+    <script src="./assets/js/toggle_html_script.js"></script>
+  </body>
+</html>

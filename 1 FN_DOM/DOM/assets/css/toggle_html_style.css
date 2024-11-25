@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styles for the section */
+#landing{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#toggle-text {
+   
+    padding: 30px;    
+    border-radius: 20px 40px;    
+    box-shadow: 0px 0px 10px black;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap:20px;
+}
+
+#text{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px 20px;   
+    border-radius: 40px 0px; 
+    box-shadow: 0px 0px 5px rgb(0, 151, 65);
+
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+
+}
+
+/* Container for the form */
+#form-con {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Styling the input items */
+.input-item {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* Label styling */
+.input-item label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1rem;    
+}
+
+/* Input field styling */
+.input-item input[type="text"] {
+    padding: 12px;  
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 3px solid black;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: transparent;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-item input[type="text"]:focus {
+    background-color: white;
+    border-color: #01a40f;
+    box-shadow: 0 0 5px rgba(0, 255, 8, 0.5);
+    outline: none;
+}
+
+/* Checkbox group styling */
+.checkbox-group {
+    display: flex;
+    gap: 20px; /* Adjust the spacing between checkboxes */
+    align-items: center;
+    margin: 0 auto;
+}
+
+/* Checkbox styling */
+.checkbox-group div {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 2rem;
+    margin-right: 8px;
+    accent-color: #01a40f; /* Modern checkbox color */
+}
+
+/* Button styling */
+.btn {
+    padding: 12px 24px;
+    background-color: #01a40f;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    background-color: #004494;
+    transform: scale(1);
+}

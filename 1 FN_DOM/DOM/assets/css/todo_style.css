@@ -1,0 +1,122 @@
+/* Reset some default styles */
+body,
+h1,
+ul,
+form,
+input,
+button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: rgb(84, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(84, 0, 0, 1) 0%,
+    rgba(0, 75, 6, 1) 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+#todo-container {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+h1 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#todo-form {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+#todo-input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-left: 2px solid darkolivegreen;
+  border-right: 2px solid darkolivegreen;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-right: 10px;
+  outline: none;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 50% 5%;
+  box-shadow: 5px 0px 5px darkgreen;
+  background-color: #28a745;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+button:active {
+  box-shadow: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f9f9f9;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+li:hover{
+    transform: translateY(-2px);
+}
+
+li span {
+  flex: 1;
+  font-size: 1rem;
+  color: #555;
+}
+
+.remove-btn {
+  background-color: #dc3545;
+  border: none;
+  box-shadow: 5px 0px 5px darkred;
+  border-radius: 50% 5%;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.remove-btn:hover {
+  background-color: #c82333;
+}
