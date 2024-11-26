@@ -1,0 +1,113 @@
+:root{
+    
+    --color1:#0D7C66;
+    --color2:#41B3A2;
+    --color3:#BDE8CA;
+    --color4:#D7C3F1;
+
+}
+
+/* Reset some default styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color3);
+}
+
+/* Header Styling */
+header {
+    background-color: var(--color1);
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+/* Main Content Styling */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--color4);
+}
+
+/* Button Container Styling */
+.btns {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: var(--color2);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+}
+
+button:hover {
+    background-color: var(--color1);
+}
+
+button:active {
+    transform: translateY(3px);
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--color1);
+}
+
+/* Box Container Styling */
+.boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px; /* Adds spacing between boxes */
+    justify-items: center;
+    align-items: center;
+}
+
+.box {
+    margin: 10px;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #ffffff;
+    display: inline-block;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.box:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.highlight {
+    background-color: #ffeb3b; /* Bright yellow */
+    border-color: #fdd835; /* Darker yellow border */
+}
+
+/* Footer Styling */
+footer {
+    background-color: var(--color2);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}

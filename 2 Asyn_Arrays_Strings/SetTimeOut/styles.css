@@ -1,0 +1,118 @@
+/* styles.css */
+
+/* Blinking animation */
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #EBFFFA, #C6FCE5);
+    font-family: 'Arial', sans-serif;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    width: 350px;
+    text-align: center;
+}
+
+#form-container, #message-container, #countdown-container {
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px 0;
+    width: 100%;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+#form-container.visible, #message-container.visible, #countdown-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h1 {
+    color: #0DCEDA; /* Vibrant Aqua */
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+input {
+    font-size: 1rem;
+    padding: 12px;
+    margin: 10px 0;
+    width: calc(100% - 24px);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+    border-color: #6EF3D6; /* Bright Aqua */
+    box-shadow: 0 0 8px rgba(110, 243, 214, 0.3);
+    outline: none;
+}
+
+button {
+    font-size: 1.1rem;
+    padding: 12px 25px;
+    cursor: pointer;
+    background: #0DCEDA; /* Vibrant Aqua */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    margin-top: 15px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: #6EF3D6; /* Bright Aqua */
+    transform: scale(1.02);
+}
+
+button:active {
+    background: #4a90e2; /* Adjusted for a deeper color when active */
+    transform: scale(0.98);
+}
+
+#message {
+    font-size: 1.2rem;
+    color: #2d3748;
+    font-weight: 500;
+}
+
+#countdown {
+    font-size: 2.5rem;
+    color: #0DCEDA; /* Vibrant Aqua */
+    font-weight: 600;
+    transition: color 0.5s ease, animation 0.5s ease;
+}
+
+.blink {
+    animation: blink 1s step-start infinite;
+}
+
+.end {
+    color: #e53e3e; /* Red color when timer ends */
+    animation: none;
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
