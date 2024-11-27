@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tag Management</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      #tags-container {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .tag {
+        background-color: #c10271;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 20px;
+        display: inline-flex;
+        align-items: center;
+      }
+      .tag span {
+        margin-left: 10px;
+        cursor: pointer;
+        color: white;
+        font-weight: bold;
+      }
+      #error-message {
+        color: red;
+        margin-top: 10px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Tag Management</h1>
+    <input type="text" id="tag-input" placeholder="Enter a tag" />
+    <button id="add-tag-btn">Add Tag</button>
+    <div id="tags-container"></div>
+    <div id="error-message"></div>
+
+    <script>
+      document
+        .getElementById("add-tag-btn")
+        .addEventListener("click", function () {
+          const tagInput = document.getElementById("tag-input");
+          const tagValue = tagInput.value.trim();
+          const errorMessage = document.getElementById("error-message");
+
+          // Clear previous error message
+          errorMessage.textContent = "";
+
+          // Inline error handling
+          if (!tagValue) {
+            errorMessage.textContent = "Tag cannot be empty!";
+            return;
+          }
+
+          if (isDuplicateTag(tagValue)) {
+            errorMessage.textContent = "Tag already exists!";
+            return;
+          }
+
+          const tagContainer = document.getElementById("tags-container");
+          const tag = document.createElement("div");
+          tag.className = "tag";
+          tag.innerHTML = `${tagValue}<span>&times;</span>`;
+
+          tag.querySelector("span").addEventListener("click", () => {
+            tagContainer.removeChild(tag);
+          });
+
+          tagContainer.appendChild(tag);
+          tagInput.value = "";
+        });
+
+      function isDuplicateTag(tag) {
+        const existingTags = document.querySelectorAll(".tag");
+        return Array.from(existingTags).some(
+          (t) => t.textContent.replace("×", "") === tag
+        );
+      }
+    </script>
+  </body>
+</html>

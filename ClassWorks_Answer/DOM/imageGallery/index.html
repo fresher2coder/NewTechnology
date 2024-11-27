@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Gallery</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      #gallery-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+      }
+      .photo-item {
+        position: relative;
+      }
+      .photo-item img {
+        width: 150px;
+        height: 100px;
+        object-fit: cover;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      .remove-btn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Dynamic Photo Gallery</h1>
+    <input type="text" id="image-url" placeholder="Enter image URL" />
+    <button id="add-photo-btn">Add Photo</button>
+
+    <div id="gallery-container"></div>
+
+    <script>
+      document
+        .getElementById("add-photo-btn")
+        .addEventListener("click", function () {
+          const imageUrl = document.getElementById("image-url").value.trim();
+          if (!imageUrl) return alert("Image URL is required!");
+
+          const galleryContainer = document.getElementById("gallery-container");
+          const photoItem = document.createElement("div");
+          photoItem.className = "photo-item";
+
+          photoItem.innerHTML = `
+                <img src="${imageUrl}" alt="Photo">
+                <button class="remove-btn">&times;</button>
+            `;
+
+          photoItem
+            .querySelector(".remove-btn")
+            .addEventListener("click", () => {
+              galleryContainer.removeChild(photoItem);
+            });
+
+          galleryContainer.appendChild(photoItem);
+          document.getElementById("image-url").value = "";
+        });
+    </script>
+  </body>
+</html>

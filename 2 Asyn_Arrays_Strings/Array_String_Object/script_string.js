@@ -1,5 +1,5 @@
 // Creating Strings
-let singleQuoteString = 'Hello, world!'; // Using single quotes
+let singleQuoteString = "Hello, world!"; // Using single quotes
 let doubleQuoteString = "Hello, world!"; // Using double quotes
 let templateLiteralString = `Hello, world!`; // Using template literals (backticks)
 
@@ -44,8 +44,10 @@ console.log(message.indexOf("Alice")); // 7
 console.log(message.indexOf("Bob")); // -1 (not found)
 
 // lastIndexOf() - Returns the index of the last occurrence of a substring
-let repeatString = "hello hello";
+let repeatString = "hi. hello hello hello";
+console.log(repeatString.indexOf("hello"));
 console.log(repeatString.lastIndexOf("hello")); // 6
+console.log(repeatString.indexOf("hello", repeatString.indexOf("hello") + 1));
 
 // substring() - Extracts characters between two indices
 let subString = message.substring(0, 5);

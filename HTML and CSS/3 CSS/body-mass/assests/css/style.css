@@ -1,0 +1,167 @@
+/* Resetting default margins, padding, and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Styling the landing section */
+#landing {
+    width: 100%;
+    height: 98vh;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+/* Container 1 */
+#con-1 {
+    width: 70%;
+    height: 100%;
+    border-radius: 0 0 50px 50px;
+    background: white;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgb(145, 209, 251) 100%);
+    padding: 5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo and text container */
+#logo-text {
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: space-around;
+}
+
+/* Text styling */
+#text {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+#text h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+#text p {
+    font-size: 1rem;
+    text-align: justify;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+/* Container 2 */
+#con-2 {
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin-right: 2rem;
+    position:relative;
+    right: 10vw;
+    transition:transform 0.3s 0s ease-in;
+}
+
+#con-2:hover{
+    transform: translateY(-3px);
+}
+
+/* Grid layout for form elements */
+#con-2-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+        "h h"
+        "m i"
+        "he w"
+        "o o";
+    gap: 1rem;
+}
+
+/* Grid item styles */
+#item-1 {
+    grid-area: h;
+}
+
+#item-2 {
+    grid-area: m;
+}
+
+#item-3 {
+    grid-area: i;
+}
+
+#item-4 {
+    grid-area: he;
+}
+
+#item-5 {
+    grid-area: w;
+}
+
+#item-6 {
+    grid-area: o;
+    padding: 1rem;
+    background-color: #e0f7fa;
+    border-radius: 10px 50px 50px 10px;
+}
+
+/* Height and weight container styles */
+#con-height, #con-weight {
+    padding: 0.5rem;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+#con-height input, #con-weight input {
+    width: 60%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 0.5rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #landing {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    #con-1 {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    #con-2 {
+        margin-right: 0;
+        width: 100%;
+        max-width: none;
+    }
+
+    #text h1 {
+        font-size: 2.5rem;
+    }
+
+    #text p {
+        font-size: 0.9rem;
+    }
+}

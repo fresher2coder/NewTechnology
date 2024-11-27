@@ -45,22 +45,24 @@ console.log(newFruits); // ["blackberry", "coconut"]
 // forEach() - Executes a provided function once for each array element
 fruits.forEach((fruit) => console.log(fruit));
 // Output:
-// avocado
-// blackberry
-// coconut
-// cherry
+// avocado 7
+// blackberry 10
+// coconut 7
+// cherry 6
 
-// map() - Creates a new array with the results of calling a provided function on every element
-let upperFruits = fruits.map((fruit) => fruit.toUpperCase());
-console.log(upperFruits); // ["AVOCADO", "BLACKBERRY", "COCONUT", "CHERRY"]
+//map, filter, reduce
 
-// filter() - Creates a new array with all elements that pass the test implemented by the provided function
-let shortFruits = fruits.filter((fruit) => fruit.length < 8);
-console.log(shortFruits); // ["avocado", "coconut", "cherry"]
+let nums = [10, 21, 30, 40, 50];
 
-// reduce() - Applies a function against an accumulator and each element in the array to reduce it to a single value
-let totalLength = fruits.reduce((total, fruit) => total + fruit.length, 0);
-console.log(totalLength); // 22 - Length of all fruit names combined
+let nums2 = nums.map((num) => num * 2);
+console.log(nums);
+console.log(nums2);
+
+let even = nums.filter((num) => num % 2 == 0);
+console.log(even);
+
+let total = nums.reduce((sum, num) => sum + num, 0);
+console.log(total);
 
 // Iterating Over Arrays
 

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Gallery with Local Upload</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f8f8f8;
+        margin: 20px;
+      }
+      h1 {
+        color: #444;
+      }
+      input[type="file"],
+      button {
+        padding: 10px;
+        margin: 5px 0;
+        font-size: 16px;
+      }
+      button {
+        background-color: #17a2b8;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #138496;
+      }
+      #gallery-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 20px;
+      }
+      .photo-item {
+        position: relative;
+        width: 150px;
+        height: 100px;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .photo-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+      .remove-btn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background-color: rgba(255, 0, 0, 0.8);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        font-size: 14px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .remove-btn:hover {
+        background-color: rgba(200, 0, 0, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Dynamic Photo Gallery</h1>
+    <input type="file" id="image-upload" accept="image/*" />
+    <button id="upload-btn">Upload Image</button>
+
+    <div id="gallery-container"></div>
+
+    <script>
+      document
+        .getElementById("upload-btn")
+        .addEventListener("click", function () {
+          const imageUpload = document.getElementById("image-upload");
+          const files = imageUpload.files;
+
+          if (!files.length) {
+            alert("Please select an image to upload!");
+            return;
+          }
+
+          const file = files[0];
+          const reader = new FileReader();
+
+          // When the file is loaded, create an image element dynamically
+          reader.onload = function (event) {
+            const galleryContainer =
+              document.getElementById("gallery-container");
+            const photoItem = document.createElement("div");
+            photoItem.className = "photo-item";
+
+            photoItem.innerHTML = `
+                    <img src="${event.target.result}" alt="Uploaded Image">
+                    <button class="remove-btn">&times;</button>
+                `;
+
+            photoItem
+              .querySelector(".remove-btn")
+              .addEventListener("click", () => {
+                galleryContainer.removeChild(photoItem);
+              });
+
+            galleryContainer.appendChild(photoItem);
+            imageUpload.value = ""; // Reset the file input
+          };
+
+          reader.readAsDataURL(file); // Read the file as a Data URL
+        });
+    </script>
+  </body>
+</html>

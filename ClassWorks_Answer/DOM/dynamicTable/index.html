@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Table with Edit</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+      }
+      .delete-btn {
+        color: red;
+        cursor: pointer;
+      }
+      .edit-btn {
+        color: blue;
+        cursor: pointer;
+        margin-right: 10px;
+      }
+      .error {
+        color: red;
+        font-size: 0.9em;
+        margin-top: 5px;
+        display: none;
+      }
+      /* Overlay styles */
+      #edit-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+      }
+      #edit-form {
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      #edit-form input {
+        width: 300px;
+        margin: 10px 0;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Dynamic Table</h1>
+    <input type="text" id="name" placeholder="Enter name" />
+    <input type="email" id="email" placeholder="Enter email" />
+    <button id="add-row-btn">Add Row</button>
+    <p id="add-error" class="error">Both name and email are required!</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+
+    <!-- Edit Overlay -->
+    <div id="edit-overlay">
+      <div id="edit-form">
+        <h2>Edit Row</h2>
+        <input type="text" id="edit-name" placeholder="Edit name" />
+        <input type="email" id="edit-email" placeholder="Edit email" />
+        <p id="edit-error" class="error">Both name and email are required!</p>
+        <button id="save-edit-btn">Save</button>
+        <button id="cancel-edit-btn">Cancel</button>
+      </div>
+    </div>
+
+    <script>
+      const editOverlay = document.getElementById("edit-overlay");
+      const editNameField = document.getElementById("edit-name");
+      const editEmailField = document.getElementById("edit-email");
+      const addError = document.getElementById("add-error");
+      const editError = document.getElementById("edit-error");
+      let currentRow = null;
+
+      document
+        .getElementById("add-row-btn")
+        .addEventListener("click", function () {
+          const name = document.getElementById("name").value.trim();
+          const email = document.getElementById("email").value.trim();
+
+          if (!name || !email) {
+            addError.style.display = "block";
+            return;
+          } else {
+            addError.style.display = "none";
+          }
+
+          const tableBody = document.getElementById("table-body");
+          const row = document.createElement("tr");
+
+          row.innerHTML = `
+                <td>${name}</td>
+                <td>${email}</td>
+                <td>
+                  <span class="edit-btn">Edit</span>
+                  <span class="delete-btn">Delete</span>
+                </td>
+            `;
+
+          // Add event listener for delete
+          row.querySelector(".delete-btn").addEventListener("click", () => {
+            tableBody.removeChild(row);
+          });
+
+          // Add event listener for edit
+          row.querySelector(".edit-btn").addEventListener("click", () => {
+            currentRow = row;
+            editNameField.value = row.children[0].textContent;
+            editEmailField.value = row.children[1].textContent;
+            editOverlay.style.display = "flex";
+            editError.style.display = "none";
+          });
+
+          tableBody.appendChild(row);
+
+          document.getElementById("name").value = "";
+          document.getElementById("email").value = "";
+        });
+
+      // Save the edited row
+      document.getElementById("save-edit-btn").addEventListener("click", () => {
+        const newName = editNameField.value.trim();
+        const newEmail = editEmailField.value.trim();
+
+        if (!newName || !newEmail) {
+          editError.style.display = "block";
+          return;
+        }
+
+        currentRow.children[0].textContent = newName;
+        currentRow.children[1].textContent = newEmail;
+        editOverlay.style.display = "none";
+      });
+
+      // Cancel editing
+      document
+        .getElementById("cancel-edit-btn")
+        .addEventListener("click", () => {
+          editOverlay.style.display = "none";
+        });
+    </script>
+  </body>
+</html>

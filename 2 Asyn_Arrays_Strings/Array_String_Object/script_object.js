@@ -13,7 +13,7 @@ const dk = {
     city: "chennai",
     pincode: 600059,
   },
-  fullName: function () {
+  fullName: () => {
     return this.firstName + " " + this.lastName;
   },
 };
@@ -45,11 +45,11 @@ class Person {
     this.age = age;
     this.isStudent = isStudent;
     this.hobbies = hobbies;
-    this.address = address;    
+    this.address = address;
   }
 
   fullName() {
-    return this.firstName + " " + this.lastName
+    return this.firstName + " " + this.lastName;
   }
 }
 
@@ -67,67 +67,59 @@ const ddd = new Person(
   }
 );
 
-
 //ACCESSING - Dot Notation, Bracket Notation
-console.log(dk)
-console.log(dk.fullName())
-console.log(dk["fullName"]())
+console.log(dk);
+console.log(dk.fullName());
+console.log(dk["fullName"]());
 
-console.log(dd)
-console.log(dd.fullName())
-console.log(dd["fullName"]())
+console.log(dd);
+console.log(dd.fullName());
+console.log(dd["fullName"]());
 
-console.log(ddd)
-console.log(ddd.fullName())
-console.log(ddd["fullName"]())
-
+console.log(ddd);
+console.log(ddd.fullName());
+console.log(ddd["fullName"]());
 
 //MODIFYING
-dk.isStudent = true
-console.log(dk.isStudent)
+dk.isStudent = true;
+console.log(dk.isStudent);
 
 //ADDING PROPERTIES
-dk.salary = 10000.0
-console.log(dk)
+dk.salary = 10000.0;
+console.log(dk);
 
 //DELETING PROPERTIES
-delete dk.salary
-
+delete dk.salary;
 
 //ITERATE
 //using 'for .. in' - iterate over the keys and use bracket notation
-for(let key in dk){
-    console.log(key, ": ", dk[key])
+for (let key in dk) {
+  console.log(key, ": ", dk[key]);
 }
 
 //using 'for .. of' - iterate over the values
-for(let value of Object.values(dk)){
-    console.log(value)
+for (let value of Object.values(dk)) {
+  console.log(value);
 }
 
 //Returns a 1D array of keys of an object
-console.log(Object.keys(dk))
+console.log(Object.keys(dk));
 
 //Returns a 1D array of values of an object
-console.log(Object.values(dk))
+console.log(Object.values(dk));
 
 //Returns a nested array of (key, value) pair
-console.log(Object.entries(dk))
+console.log(Object.entries(dk));
 
 // Copies the values of all enumerable own properties from one or more source objects to a target object.
 // Returns the target object.
-const family = Object.assign({}, dk)
+const family = Object.assign(dd, dk);
 
 // Freezes an object: other code cannot delete or change any properties.
 // Object.freeze(family)
-family.firstName = "aaaa"
-console.log(family)
-console.log(dk)
-
+family.firstName = "aaaa";
+console.log(family);
+console.log(dk);
 
 //Find the length of an Object
-console.log(Object.values(dk).length)
-
-
-
-
+console.log(Object.values(dk).length);

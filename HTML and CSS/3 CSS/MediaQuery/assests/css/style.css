@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#main-con{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#background-con{
+    width: 1000px;
+    height: 600px;
+    background-color: darkcyan;
+    color: white;
+    font-size: xx-large;
+    letter-spacing: 2px;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 
+screen
+print
+all
+
+max-width
+min-width
+aspect-ratio
+orientation: landscape-portrait
+resolution
+ */

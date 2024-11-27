@@ -1,0 +1,72 @@
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: darkcyan;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: small;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#transition{    
+    /* transition-duration: 10s;
+    transition-delay: 1s;
+    transition-timing-function: ease-in-out;
+    transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
+    transition-property: background-color; */
+
+    transition: transform 2s 0s ease-in-out;
+}
+/* 
+link
+visited
+active
+focus
+hover
+nth child
+first-child
+last-child */
+#transition:hover{
+    /* width: 1200px;
+    background-color: lightcoral;
+    color: black; */
+    transform:rotate(90deg);
+    transform:scalex(2);
+    transform: skewx(45deg);
+    transform:translatex(50px);
+}
+
+#animation{
+    position: absolute;
+    /* animation-name: circle;
+    animation-duration: 5s;
+    animation-delay: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate; */
+
+    animation: circle 5s 2s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes circle{
+    0%{
+        top: 0px;
+        left: 0px;
+    }
+    50%{
+        top: 40vh;
+        left: 40vw;
+    }
+    100%{
+        top:0;
+        left:90vw;
+        border-radius: 50%;
+    }
+}
+
+
+
+

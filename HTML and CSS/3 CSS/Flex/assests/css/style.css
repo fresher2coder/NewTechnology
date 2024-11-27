@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* flex
+justify-content
+align-items
+flex-direction
+
+order
+flex-grow
+flex-shrink
+flex-basis
+flex-wrap */
+
+#boxes-flex{
+    border: 3px solid black;
+    min-width: 500px;
+    min-height: 500px;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#boxes-flex .box{
+    width: 200px;
+    height: 200px;
+    background-color: blueviolet;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    color: white;
+    font-weight: bolder;
+    margin-left: 10px;
+}
+
+#boxes-flex  #box-1{
+    order: 1;
+    flex-basis:25%;
+  
+}
+#boxes-flex  #box-2{
+    order: 2;
+    
+    
+}
+#boxes-flex  #box-3{
+    order: 5;
+}
+#boxes-flex  #box-4{
+    order: 4;
+}
+#boxes-flex #box-5{
+    order: 3;
+}
+
+#boxes-grid{
+    margin-top: 20px;
+    padding: 20px;
+    border: 3px solid black;
+    height: 500px;
+    display: grid;
+    /* grid-template-columns: minmax(200px, 1fr) 1fr 1fr 1fr; */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: 3fr 2fr;
+    grid-auto-rows: 100px;
+    /* grid-auto-flow: column; */
+    justify-items: stretch;
+    align-items: stretch;
+    gap: 10px;
+}
+
+#boxes-grid .box{
+    /* width: 100px;*/
+    /* height: 100px;  */
+    background-color: rgb(0, 136, 66);
+    color: white;
+    font-size: larger;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#boxes-grid #box-1{
+
+    grid-row: span 2;
+}
+
+#boxes-grid #box-15{
+
+    grid-column: span 6;
+  
+}
+
+#layout{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 10vh 80vh 10vh;
+    grid-template-areas: 
+    "h h h h h"
+    "sb1 m m m sb2"
+    "f f f f f";
+}
+
+#layout div{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid red;
+    background-color: aqua;
+    font-size: larger;
+}
+
+
+#header{
+    grid-area: h;
+}
+
+.aside-1{
+    grid-area: sb1;
+}
+.aside-2{
+    grid-area: sb2;
+}
+.main{
+    grid-area: m;
+}
+.footer{
+    grid-area: f;
+}
+
+
+
+

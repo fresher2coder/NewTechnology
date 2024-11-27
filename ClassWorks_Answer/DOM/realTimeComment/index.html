@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-Time Comment System</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      #comment-box {
+        margin: 20px 0;
+      }
+      .comment-item {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: relative;
+      }
+      .comment-actions {
+        margin-top: 5px;
+      }
+      .reply-btn,
+      .delete-btn,
+      .edit-btn {
+        cursor: pointer;
+        margin-right: 10px;
+        color: blue;
+        border: none;
+        background: none;
+        padding: 0;
+      }
+      .delete-btn {
+        color: red;
+      }
+      .error-message {
+        color: red;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+      .reply-box {
+        margin-left: 20px;
+        margin-top: 10px;
+      }
+      .edit-area {
+        margin-top: 10px;
+        display: flex;
+        gap: 10px;
+      }
+      .edit-input {
+        flex: 1;
+        font-size: 14px;
+        padding: 5px;
+      }
+      .save-btn {
+        padding: 5px 10px;
+        cursor: pointer;
+        background: rgb(115, 1, 121);
+        color: white;
+        border: none;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Comment System</h1>
+    <textarea
+      id="comment"
+      placeholder="Write a comment..."
+      style="width: 300px; height: 100px"
+    ></textarea>
+    <button id="add-comment-btn">Post Comment</button>
+    <div id="comment-error" class="error-message"></div>
+
+    <div id="comments-container"></div>
+
+    <script>
+      document
+        .getElementById("add-comment-btn")
+        .addEventListener("click", function () {
+          const commentText = document.getElementById("comment").value.trim();
+          const errorBox = document.getElementById("comment-error");
+
+          // Clear error message
+          errorBox.textContent = "";
+
+          // Inline error handling
+          if (!commentText) {
+            errorBox.textContent = "Comment cannot be empty.";
+            return;
+          }
+
+          addComment(
+            commentText,
+            document.getElementById("comments-container")
+          );
+          document.getElementById("comment").value = "";
+        });
+
+      function addComment(text, container) {
+        const commentItem = document.createElement("div");
+        commentItem.className = "comment-item";
+
+        const commentText = document.createElement("p");
+        commentText.textContent = text;
+
+        const actions = document.createElement("div");
+        actions.className = "comment-actions";
+
+        const replyBtn = document.createElement("button");
+        replyBtn.className = "reply-btn";
+        replyBtn.textContent = "Reply";
+
+        const editBtn = document.createElement("button");
+        editBtn.className = "edit-btn";
+        editBtn.textContent = "Edit";
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.className = "delete-btn";
+        deleteBtn.textContent = "Delete";
+
+        const replyBox = document.createElement("div");
+        replyBox.className = "reply-box";
+
+        actions.append(replyBtn, editBtn, deleteBtn);
+        commentItem.append(commentText, actions, replyBox);
+        container.appendChild(commentItem);
+
+        // Add event listener for reply
+        replyBtn.addEventListener("click", function () {
+          const replyInput = document.createElement("textarea");
+          replyInput.placeholder = "Write a reply...";
+          replyInput.style.width = "250px";
+
+          const replyPostBtn = document.createElement("button");
+          replyPostBtn.textContent = "Post Reply";
+          replyPostBtn.style.marginLeft = "10px";
+
+          const replyContainer = document.createElement("div");
+          replyContainer.append(replyInput, replyPostBtn);
+
+          replyBox.appendChild(replyContainer);
+
+          replyPostBtn.addEventListener("click", function () {
+            const replyText = replyInput.value.trim();
+            if (!replyText) {
+              replyInput.style.borderColor = "red";
+              return;
+            }
+
+            addComment(replyText, replyBox);
+            replyBox.removeChild(replyContainer);
+          });
+        });
+
+        // Add event listener for edit
+        editBtn.addEventListener("click", function () {
+          const editArea = document.createElement("div");
+          editArea.className = "edit-area";
+
+          const editInput = document.createElement("input");
+          editInput.type = "text";
+          editInput.value = commentText.textContent;
+          editInput.className = "edit-input";
+
+          const saveBtn = document.createElement("button");
+          saveBtn.textContent = "Save";
+          saveBtn.className = "save-btn";
+
+          editArea.append(editInput, saveBtn);
+          commentItem.replaceChild(editArea, commentText);
+
+          saveBtn.addEventListener("click", function () {
+            const newText = editInput.value.trim();
+            if (!newText) {
+              editInput.style.borderColor = "red";
+              return;
+            }
+            commentText.textContent = newText;
+            commentItem.replaceChild(commentText, editArea);
+          });
+        });
+
+        // Add event listener for delete
+        deleteBtn.addEventListener("click", function () {
+          container.removeChild(commentItem);
+        });
+      }
+    </script>
+  </body>
+</html>

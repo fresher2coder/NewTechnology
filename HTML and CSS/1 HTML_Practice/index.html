@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML</title>
+    <style>
+      .container {
+        border: 2px solid rgb(0, 79, 144);
+      }
+      table {
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid rgb(144, 0, 62);
+      }
+
+      #form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 50px 0 ;
+        background-color: aliceblue;
+      }
+      form {
+        border: 2px solid rgb(0, 158, 89);
+        background-color: aquamarine;
+        width: 500px;
+      }
+      .form-group {
+        flex-direction: column;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="text">
+      <h1>Text</h1>
+
+      <h1>Good Morning</h1>
+      <h2>Good Morning</h2>
+      <h3>Good Morning</h3>
+      <h4>Good Morning</h4>
+      <h5>Good Morning</h5>
+      <h6>Good Morning</h6>
+
+      <p>
+        This is paragraph. <b>Bold Text</b>, <i>Italic Text</i>,
+        <u>Underline Text</u>
+      </p>
+
+      <p>
+        This is paragraph. <small>small text</small>
+        <strong>Strong Text</strong> <em>Emphasized Text</em>
+      </p>
+    </div>
+
+    <div class="container" id="link">
+      <h1>Link</h1>
+
+      <p>Visit: <a href="https://www.google.co.in/">Google</a></p>
+
+      <p>Visit: <a href="./my_page.html">My Page</a></p>
+
+      <p>Email to: <a href="mailto:sendmail2dk@gmail.com">Dineshkumar</a></p>
+    </div>
+
+    <div class="container" id="list">
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+      </ul>
+      <ol>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+      </ol>
+      <dl>
+        <dt>HTML</dt>
+        <dd>Hyper Text Markup Language</dd>
+        <dt>CSS</dt>
+        <dd>Cascading Style Sheet</dd>
+        <dt>JavaScript</dt>
+        <dd>Client Side Scripting Language</dd>
+      </dl>
+    </div>
+
+    <div class="container" id="img-client">
+      <h1>Image with Client-Side Mapping</h1>
+      <img
+        src="./assests/img/html_log.jpg"
+        alt="HTML LOGO"
+        width="150px"
+        height="150px"
+        title="Hyper Text Markup Language"
+        loading="lazy"
+        usemap="#html-map"
+      />
+      <img
+        src="./assests/img/CSS_logo.jpg"
+        alt="CSS LOGO"
+        width="150px"
+        height="150px"
+        title="Cascading Style Sheet"
+        loading="lazy"
+        usemap="#css-map"
+      />
+
+      <map name="html-map">
+        <area
+          shape="rect"
+          coords="0,0,75,75"
+          href="https://www.google.co.in"
+          alt="Top-Left"
+        />
+        <area
+          shape="rect"
+          coords="75,75,150,150"
+          href="https://www.gmail.com"
+          alt="Bottom-right"
+        />
+      </map>
+      <map name="css-map"></map>
+    </div>
+
+    <div class="container" id="img-server">
+      <h1>Image with Server-Side Mapping</h1>
+      <a href="./my_page.html">
+        <img
+          src="./assests/img/CSS_logo.jpg"
+          alt="CSS"
+          width="150px"
+          height="150px"
+          loading="lazy"
+          ismap
+        />
+      </a>
+    </div>
+
+    <div class="container" id="table">
+      <table style="width: 100%">
+        <colgroup>
+          <col style="width: 10%" />
+          <col style="width: 40%" />
+          <col style="width: 30%" />
+          <col style="width: 15%" />
+          <col style="width: 5%" />
+        </colgroup>
+        <thead>
+          <th>S.No</th>
+          <th>Student Name</th>
+          <th>Reg No</th>
+          <th>Dept</th>
+          <th>Institute</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Dineshkumar</td>
+            <td>20084016</td>
+            <td>CSE</td>
+            <td rowspan="3">Vignan</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Divya Dineshkumar</td>
+            <td>20084017</td>
+            <td>Micro Biology</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Darwin Divya Dinesh</td>
+            <td>20084018</td>
+            <td>Developing Roots</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="5" style="text-align: center">Student Table</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="container" id="form">
+      <form action="success.html" method="get" submit="">
+        <fieldset>
+          <legend>Type 1:</legend>
+
+          <div class="form-group">
+            <label for="college">College: </label>
+            <input
+              type="text"
+              name="college"
+              id="college"
+              value="VIGNAN"
+              readonly
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="enter your name"
+            />
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Type 2:</legend>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" />
+          </div>
+          <div class="form-group">
+            <!-- Password input -->
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" />
+          </div>
+
+          <div class="form-group">
+            <!-- Date input -->
+            <label for="birthdate">Birthdate:</label>
+            <input type="date" id="birthdate" name="birthdate" />
+          </div>
+          <div class="form-group">
+            <!-- Datetime-local input -->
+            <label for="meeting-time">Meeting time:</label>
+            <input
+              type="datetime-local"
+              id="meeting-time"
+              name="meeting-time"
+            />
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Type 3:</legend>
+          <!-- Radio buttons -->
+          <div class="form-group">
+            <label>Gender:</label>
+            <input type="radio" id="male" name="gender" value="male" />
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female" />
+            <label for="female">Female</label>
+          </div>
+          <div class="form-group">
+            <!-- Checkbox -->
+            <label for="subscribe">Subscribe to newsletter:</label>
+            <input type="checkbox" id="subscribe" name="subscribe" />
+          </div>
+          <div class="form-group">
+            <!-- Select dropdown -->
+            <label for="country">Country:</label>
+            <select id="country" name="country">
+              <option value="usa">USA</option>
+              <option value="canada">Canada</option>
+              <option value="uk">UK</option>
+              <option value="australia">Australia</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Type 4</legend>
+          <div class="form-group">
+            <!-- Textarea -->
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" cols="50"></textarea>
+          </div>
+          <div class="form-group">
+            <!-- File upload -->
+            <label for="avatar">Select a profile picture:</label>
+            <input
+              type="file"
+              id="avatar"
+              name="avatar"
+              accept="image/png, image/jpeg"
+            />
+          </div>
+          <div class="form-group">
+            <!-- Month input -->
+            <label for="month">Select a month:</label>
+            <input type="month" id="month" name="month" />
+          </div>
+
+          <div class="form-group">
+            <!-- Number input -->
+            <label for="quantity">Quantity:</label>
+            <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              min="1"
+              max="10"
+            />
+          </div>
+          <div class="form-group">
+            <!-- Range input (slider) -->
+            <label for="volume">Volume:</label>
+            <input type="range" id="volume" name="volume" min="0" max="100" />
+          </div>
+          <div class="form-group">
+            <!-- Telephone input -->
+            <label for="phone">Phone number:</label>
+            <input type="tel" id="phone" name="phone" />
+          </div>
+          <div class="form-group">
+            <!-- Time input -->
+            <label for="meeting-time">Meeting time:</label>
+            <input type="time" id="meeting-time" name="meeting-time" />
+          </div>
+          <div class="form-group">
+            <!-- URL input -->
+            <label for="website">Website URL:</label>
+            <input type="url" id="website" name="website" />
+          </div>
+          <div class="form-group">
+            <!-- Week input -->
+            <label for="week">Select a week:</label>
+            <input type="week" id="week" name="week" />
+          </div>
+          <div class="form-group">
+            <!-- Color input -->
+            <label for="color">Favorite color:</label>
+            <input type="color" id="color" name="color" />
+          </div>
+        </fieldset>
+        <fieldset>
+          <button type="submit">Register</button>
+          <button type="reset">Reset</button>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+/* static - default
+not-static
+    - relative -> from a static position & owns the static position
+    - absolute -> from the non-static parent & gives away its static position
+    - fixed -> position is fixed at its static position
+    - sticky -> position will be fixed after reaching either top:0px or bottom:0px
+     */
+
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+
+header{
+    background-color: grey;
+}
+
+#nav-bar{
+    background-color: black;
+    padding: 5px;
+    /* position: fixed;     */
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav{
+    background-color: white;
+    padding: 20px 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav a{
+    text-decoration: none ;
+    background-color: black;
+    color: white;
+    font-size: larger;
+    font-weight: bolder;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+#grand-parent{
+    margin: 50px;
+    position: static;
+    border: 2px solid red;
+}
+
+#parent{
+    margin: 100px;
+    position: relative;
+    border: 2px solid black;
+}
+
+#box1{
+    
+    width: 500px;
+    height: 500px;
+    background-color: rgb(0, 255, 229);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    font-weight: bold;    
+}
+#box2{
+
+    width: 200px;
+    height: 200px;
+    background-color: rgb(255, 0, 76);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    font-weight: bold;
+    position:relative;
+    left: 50px;    
+    top: 60px;
+    z-index: 1;
+}
+#box3{
+
+    width: 200px;
+    height: 200px;
+    background-color: rgb(19, 194, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    font-weight: bold;
+    position:absolute;
+    left: 50px;    
+    top: 60px;
+    
+}

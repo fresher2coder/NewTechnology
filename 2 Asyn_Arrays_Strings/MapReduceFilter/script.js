@@ -32,65 +32,50 @@ const employees = [
 
 // Function to update results based on the selected department
 function updateResults() {
-  const targetDepartment = document.getElementById("departmentSelect").value;
+  const targetDept = document.getElementById("departmentSelect").value;
 
-  // 1. Filter employees by department
-  const filteredEmployees = employees.filter(
-    (employee) => employee.department === targetDepartment
-  );
+  //filter
+  const filteredEmp = employees.filter((emp) => emp.department === targetDept);
 
-  // 2. Map to get an array of salaries
-  const salaries = filteredEmployees.map((employee) => employee.salary);
+  //reduce
+  const totalSalary = filteredEmp.reduce((total, emp) => {
+    total + emp.salary;
+  }, 0);
 
-  // 3. Reduce to calculate the total salary
-  const totalSalary = salaries.reduce(
-    (accumulator, currentSalary) => accumulator + currentSalary,
-    0
-  );
+  //map
+  const salaries = filteredEmp.map((emp) => emp.salary);
 
-  // Create a table of employee details
-  const employeeDetailsTable = `
-        <div class="table-container">
-            <table id="employeeTable">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Department</th>
-                        <th>Salary</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${filteredEmployees
-                      .map(
-                        (employee) => `
-                        <tr>
-                            <td>${employee.name}</td>
-                            <td>${employee.department}</td>
-                            <td>$${employee.salary}</td>
-                        </tr>
-                    `
-                      )
-                      .join("")}
-                </tbody>
-            </table>
-        </div>
-    `;
+  console.log(filteredEmp);
+  const empTable = `
+    <div class="table-container">
+    <table id="employeeTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Department</th>
+          <th>Salary</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${filteredEmp
+          .map(
+            (emp) =>
+              `<tr>
+              <td>${emp.name}</td>
+              <td>${emp.department}</td>
+              <td>${emp.salary}</td>
+            </tr>`
+          )
+          .join("")}
+      <tbody>
+    </table>
+    </div>
+  `;
 
-  // Display the result
-  const resultSection = document.getElementById("result");
-  resultSection.innerHTML = `
-        <h2>Results for Department: ${targetDepartment}</h2>
-        <p>Total Number of Employees: ${filteredEmployees.length}</p>
-        <p>Total Salary: $${totalSalary}</p>
-        <h3>Employee Salaries:</h3>
-        <ul>
-            ${salaries.map((salary) => `<li>$${salary}</li>`).join("")}
-        </ul>
-        <h3>Employee Details:</h3>
-        ${employeeDetailsTable}
-    `;
+  //display the table
+  const result = document.getElementById("result");
+  result.innerHTML = empTable;
 
-  // Initialize DataTables
   $("#employeeTable").DataTable();
 }
 

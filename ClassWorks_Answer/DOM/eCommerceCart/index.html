@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart Simulation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      #cart-container {
+        margin-top: 20px;
+      }
+      .cart-item {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: relative;
+      }
+      .remove-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: red;
+        cursor: pointer;
+      }
+      .edit-btn {
+        color: blue;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+      .error-message {
+        color: red;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+      /* Overlay styles */
+      #edit-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+      }
+      #edit-form {
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+      #edit-form input {
+        width: 50px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Shopping Cart</h1>
+    <input type="text" id="product" placeholder="Enter product name" />
+    <button id="add-to-cart-btn">Add to Cart</button>
+    <div id="product-error" class="error-message"></div>
+
+    <p>Total items in cart: <span id="cart-count">0</span></p>
+    <div id="cart-container"></div>
+
+    <!-- Edit Overlay -->
+    <div id="edit-overlay">
+      <div id="edit-form">
+        <h2>Edit Quantity</h2>
+        <p id="edit-product-name"></p>
+        <label for="edit-quantity">Quantity:</label>
+        <input type="number" id="edit-quantity" min="1" />
+        <button id="save-edit-btn">Save</button>
+        <button id="cancel-edit-btn">Cancel</button>
+      </div>
+    </div>
+
+    <script>
+      let cartCount = 0;
+      const cart = {}; // Object to store product names and their quantities
+      const cartContainer = document.getElementById("cart-container");
+      const productError = document.getElementById("product-error");
+      const cartCountElement = document.getElementById("cart-count");
+      const editOverlay = document.getElementById("edit-overlay");
+      const editProductName = document.getElementById("edit-product-name");
+      const editQuantity = document.getElementById("edit-quantity");
+      let currentProduct = null; // The product being edited
+
+      // Add to cart button event listener
+      document
+        .getElementById("add-to-cart-btn")
+        .addEventListener("click", function () {
+          const product = document.getElementById("product").value.trim();
+
+          // Clear error message
+          productError.textContent = "";
+
+          if (!product) {
+            productError.textContent = "Product name is required.";
+            return;
+          }
+
+          // If the product already exists, increase its quantity
+          if (cart[product]) {
+            cart[product].quantity++;
+            cart[product].quantityElement.textContent = cart[product].quantity;
+          } else {
+            // Create a new cart item
+            const cartItem = document.createElement("div");
+            cartItem.className = "cart-item";
+
+            cartItem.innerHTML = `
+              <p>${product} - Quantity: <span class="quantity">1</span></p>
+              <button class="edit-btn">Edit</button>
+              <span class="remove-btn">X</span>
+            `;
+
+            const quantityElement = cartItem.querySelector(".quantity");
+
+            // Store product details in the cart object
+            cart[product] = {
+              quantity: 1,
+              cartItem,
+              quantityElement,
+            };
+
+            // Add event listener for editing the quantity
+            cartItem
+              .querySelector(".edit-btn")
+              .addEventListener("click", () => {
+                currentProduct = product;
+                editProductName.textContent = `Product: ${product}`;
+                editQuantity.value = cart[product].quantity;
+                editOverlay.style.display = "flex";
+              });
+
+            // Add event listener for removing the product
+            cartItem
+              .querySelector(".remove-btn")
+              .addEventListener("click", () => {
+                cartContainer.removeChild(cartItem);
+                cartCount -= cart[product].quantity;
+                delete cart[product];
+                updateCartCount();
+              });
+
+            cartContainer.appendChild(cartItem);
+          }
+
+          // Update the cart count and clear input
+          cartCount++;
+          updateCartCount();
+          document.getElementById("product").value = "";
+        });
+
+      // Update the total cart count display
+      function updateCartCount() {
+        cartCountElement.textContent = cartCount;
+      }
+
+      // Save edited quantity
+      document.getElementById("save-edit-btn").addEventListener("click", () => {
+        const newQuantity = parseInt(editQuantity.value, 10);
+
+        if (isNaN(newQuantity) || newQuantity < 1) {
+          alert("Quantity must be at least 1."); // Fallback for invalid input
+          return;
+        }
+
+        // Update the cart item quantity and total cart count
+        const difference = newQuantity - cart[currentProduct].quantity;
+        cart[currentProduct].quantity = newQuantity;
+        cart[currentProduct].quantityElement.textContent = newQuantity;
+        cartCount += difference;
+        updateCartCount();
+        editOverlay.style.display = "none";
+      });
+
+      // Cancel editing
+      document
+        .getElementById("cancel-edit-btn")
+        .addEventListener("click", () => {
+          editOverlay.style.display = "none";
+        });
+    </script>
+  </body>
+</html>
