@@ -104,7 +104,7 @@ let reachA = new Promise((resolve, reject) => {
     setTimeout(resolve, 3000, "Dineshkumar reached");
   } else {
     // If `reached` is false, reject the promise immediately with a message
-    reject("Vidya not reached");
+    reject("Dineshkumar not reached");
   }
 });
 
@@ -116,7 +116,7 @@ let reachB = new Promise((resolve, reject) => {
     setTimeout(resolve, 1000, "Divya Dineshkumar reached");
   } else {
     // If `reached` is false, reject the promise immediately with a message
-    reject("Ramya not reached");
+    reject("Divya Dineshkumar not reached");
   }
 });
 
@@ -128,7 +128,7 @@ let reachC = new Promise((resolve, reject) => {
     setTimeout(resolve, 2000, "Darwin Divya Dinesh reached");
   } else {
     // If `reached` is false, reject the promise immediately with a message
-    reject("Latha not reached");
+    reject("Darwin Divya Dinesh not reached");
   }
 });
 

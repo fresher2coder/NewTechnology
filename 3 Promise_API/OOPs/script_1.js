@@ -1,83 +1,59 @@
 //class, object, constructor, private field,static methods, getters and setters, method overriding, inheritance, default parameters
 
 class Person {
-  // Private fields
-  #id;
-
-  constructor(name, age, id = null) {
+  constructor(name, age, country = "India", ...exp) {
     this.name = name;
     this.age = age;
-    this.#id = id || Math.floor(Math.random() * 10000); // Generate random ID if not provided
+    this.country = country;
+    this.exp = exp;
   }
 
-  // Getter for ID (read-only)
+  greet() {
+    console.log(`Hi, my name is ${this.name} and I am ${this.age} years old`);
+    console.log(this.country, this.exp);
+  }
+}
+
+class Employee extends Person {
+  #id;
+  constructor(name, age, jobRole) {
+    super(name, age);
+    this.#id = Math.floor(Math.random() * 100);
+    this.jobRole = jobRole;
+  }
+
   get id() {
     return this.#id;
   }
 
-  // Getter and Setter for name
-  get name() {
-    return this._name;
+  set id(id) {
+    this.#id = id;
   }
 
-  set name(value) {
-    if (typeof value !== "string" || value.trim().length === 0) {
-      throw new Error("Invalid name");
-    }
-    this._name = value;
-  }
-
-  // Static method for validation
   static isValidAge(age) {
-    return Number.isInteger(age) && age > 0;
+    if (typeof age === "string" || age == 0) return false;
+    return true;
   }
 
-  // Instance method
   greet() {
-    console.log(`Hi, my name is ${this.name}, and I am ${this.age} years old.`);
+    console.log(`Hi, my name is ${this.name} and I am ${this.age} years old`);
+    console.log(`I am working as a ${this.jobRole}`);
   }
 
-  // Polymorphic behavior
   toString() {
-    return `Person: ${this.name}, Age: ${this.age}, ID: ${this.id}`;
+    console.log(`Employee: ${this.name} ${this.jobRole}`);
   }
 }
 
-// Subclass to demonstrate inheritance
-class Employee extends Person {
-  constructor(name, age, id, jobTitle) {
-    super(name, age, id); // Call the parent constructor
-    this.jobTitle = jobTitle;
-  }
+const dk = new Person("Dineshkumar", 34, "INDIA", 1, 2, 3);
+dk.greet();
 
-  // Overriding the greet method
-  greet() {
-    console.log(
-      `Hi, my name is ${this.name}, I am ${this.age} years old, and I work as a ${this.jobTitle}.`
-    );
-  }
+const dkEmp = new Employee(dk.name, dk.age, "Trainer");
+console.log(dkEmp.id);
+dkEmp.id = 1001;
+console.log(dkEmp.id);
 
-  // Additional method
-  work() {
-    console.log(`${this.name} is working as a ${this.jobTitle}.`);
-  }
-}
+console.log("age: ", Employee.isValidAge(0));
+dkEmp.greet();
 
-// Example usage
-try {
-  const john = new Person("John", 30);
-  console.log(john.toString()); // Person: John, Age: 30, ID: <random ID>
-  john.greet(); // Hi, my name is John, and I am 30 years old.
-
-  const jane = new Employee("Jane", 28, null, "Software Engineer");
-  jane.greet(); // Hi, my name is Jane, I am 28 years old, and I work as a Software Engineer.
-  jane.work(); // Jane is working as a Software Engineer.
-
-  console.log(Person.isValidAge(25)); // true
-  console.log(Person.isValidAge(-5)); // false
-
-  // Accessing private fields via getters
-  console.log(john.id); // Randomly generated ID
-} catch (error) {
-  console.error(error.message);
-}
+dkEmp.toString();

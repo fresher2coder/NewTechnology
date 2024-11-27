@@ -6,31 +6,64 @@
     <title>Dynamic FAQ Section with Edit</title>
     <style>
       body {
-        font-family: Arial, sans-serif;
+        font-family: "Arial", sans-serif;
         margin: 20px;
+        background-color: #e5e3d4; /* Light Beige */
+        color: #1c325b; /* Dark Blue */
+        line-height: 1.6;
       }
+
+      h1 {
+        text-align: center;
+        color: #1c325b; /* Dark Blue */
+      }
+
       #faq-container {
         margin-top: 20px;
-      }
-      .faq-item {
-        border: 1px solid #ddd;
         padding: 10px;
-        margin-bottom: 10px;
-        position: relative;
       }
+
+      .faq-item {
+        border: 1px solid #9abf80; /* Soft Green */
+        border-radius: 5px;
+        padding: 15px;
+        margin-bottom: 15px;
+        background: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .faq-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        border-color: #6a669d; /* Muted Purple */
+      }
+
       .remove-btn {
         position: absolute;
         top: 10px;
         right: 10px;
-        color: red;
+        color: #9abf80; /* Soft Green */
+        font-weight: bold;
         cursor: pointer;
       }
+
+      .remove-btn:hover {
+        color: #1c325b; /* Dark Blue */
+      }
+
       .edit-btn {
-        color: blue;
+        color: #6a669d; /* Muted Purple */
         cursor: pointer;
         margin-left: 10px;
+        text-decoration: underline;
       }
-      /* Overlay styles */
+
+      .edit-btn:hover {
+        color: #1c325b; /* Dark Blue */
+      }
+
       #edit-overlay {
         display: none;
         position: fixed;
@@ -38,36 +71,95 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(28, 50, 91, 0.7); /* Semi-transparent Dark Blue */
         justify-content: center;
         align-items: center;
+        z-index: 1000;
       }
+
       #edit-form {
         background: #fff;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         text-align: center;
+        width: 400px;
       }
+
       #edit-form textarea {
-        width: 300px;
+        width: 100%;
         height: 100px;
-        margin-top: 10px;
+        margin-top: 15px;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #9abf80; /* Soft Green */
+        font-size: 14px;
+        box-sizing: border-box;
       }
+
+      #edit-form textarea:focus {
+        border-color: #6a669d; /* Muted Purple */
+        outline: none;
+      }
+
       #edit-form p {
         font-size: 18px;
-        margin: 10px 0;
+        margin-bottom: 15px;
         font-weight: bold;
+        color: #1c325b; /* Dark Blue */
       }
+
+      button {
+        background-color: #1c325b; /* Dark Blue */
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #6a669d; /* Muted Purple */
+      }
+
+      button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+
       .error-message {
-        color: red;
+        color: #9abf80; /* Soft Green */
         font-size: 14px;
         margin-top: 5px;
+      }
+
+      input[type="text"],
+      textarea {
+        width: 300px;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #9abf80; /* Soft Green */
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 14px;
+        transition: border-color 0.3s ease;
+      }
+
+      input[type="text"]:focus,
+      textarea:focus {
+        border-color: #6a669d; /* Muted Purple */
+        outline: none;
+      }
+
+      textarea {
+        resize: none;
       }
     </style>
   </head>
   <body>
     <h1>Dynamic FAQ Section</h1>
+
     <input
       type="text"
       id="question"
