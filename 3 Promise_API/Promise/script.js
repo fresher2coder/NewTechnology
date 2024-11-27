@@ -1,30 +1,35 @@
 //Simple Example
-//promise -> fn
-let promise_1 = new Promise((resolve, reject)=>{
+const promise_1 = new Promise((resolve, reject)=>{
 
-  let love  = true
-
+  let love = false
   if(love)
-    resolve("Heart")
+    setTimeout(resolve, 5000, "Heart")
   else
     reject("Broken Heart")
 })
 
 let promise_2 = ()=>{
+  return new Promise((resolve, reject)=>{
 
-  return new Promise((resolve, reject)=>{})
+    let coin = false
+    if(coin)
+      resolve("Head")
+    else
+      reject("Tail")
+  })
 }
 
 promise_1
-.then((data)=>{console.log(data, "Marriage")})
-.catch((data)=>{console.log(data, "No Marriage")})
+.then((data)=>{console.log(data, ", Getting Married")})
+.catch((data)=>{console.log(data, ", Wake Up")})
 
 promise_2()
-.then()
-.catch()
+.then((data)=>{console.log("Toss: ", data)})
+.catch((data)=>{console.log("Toss: ", data)})
 
 //settled - resolved, rejected, pending
 //unsettled
+
 
 
 //Example with User Interface
@@ -68,7 +73,7 @@ let reachA = new Promise((resolve, reject) => {
       setTimeout(resolve, 3000, "Dineshkumar reached");
   } else {
       // If `reached` is false, reject the promise immediately with a message
-      reject("Dineshkumar not reached");
+      reject("Vidya not reached");
   }
 });
 
@@ -80,7 +85,7 @@ let reachB = new Promise((resolve, reject) => {
       setTimeout(resolve, 1000, "Divya Dineshkumar reached");
   } else {
       // If `reached` is false, reject the promise immediately with a message
-      reject("Divya Dineshkumar not reached");
+      reject("Ramya not reached");
   }
 });
 
@@ -92,29 +97,26 @@ let reachC = new Promise((resolve, reject) => {
       setTimeout(resolve, 2000, "Darwin Divya Dinesh reached");
   } else {
       // If `reached` is false, reject the promise immediately with a message
-      reject("Darwin Divya Dinesh not reached");
+      reject("Latha not reached");
   }
 });
-/*
+
 // Use Promise.all to wait for all promises to either resolve or reject
 Promise.all([reachA, reachB, reachC])
   .then((message) => console.log("all", message))  // Will not be reached if any promise is rejected
   .catch((message) => console.log(message));       // Will catch the first rejection message
 
-
 // Use Promise.allSettled to wait for all promises to settle (either resolved or rejected)
 Promise.allSettled([reachA, reachB, reachC])
   .then((message) => console.log("allSettled", message))  // Logs the status and value of each promise
   .catch((message) => console.log(message));              // Will not be reached since allSettled never rejects
-*/
+
 // Use Promise.any to wait for the first promise that resolves (ignores rejections)
 Promise.any([reachA, reachB, reachC])
   .then((message) => console.log("any", message))  // Logs the first resolved promise's value
   .catch((message) => console.log(message));       // Will catch if all promises are rejected
-/*
+
 // Use Promise.race to wait for the first promise to settle (resolve or reject)
 Promise.race([reachA, reachB, reachC])
   .then((message) => console.log("race", message))  // Logs the value of the first promise that resolves or rejects
   .catch((message) => console.log(message));       // Logs the rejection reason if the first promise rejects
-
-  */
