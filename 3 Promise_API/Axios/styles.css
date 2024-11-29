@@ -1,0 +1,89 @@
+/* General Styles */
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #e8bcb9; /* Light pink */
+  color: #4b4376; /* Purple text */
+}
+
+/* Header */
+h1 {
+  text-align: center;
+  color: #432e54; /* Dark purple */
+  margin: 20px 0;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Student List Container */
+#student-list {
+  max-width: 800px;
+  margin: 20px auto;
+  background: #ffffff; /* White for contrast */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Individual Student Item */
+.student-item {
+  padding: 15px;
+  margin-bottom: 10px;
+  background: #ae445a; /* Deep red */
+  color: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-size: 1.2rem;
+}
+
+.student-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Student Details Section */
+#student-details {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #432e54; /* Dark purple */
+  color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#student-details h2 {
+  margin-top: 0;
+  color: #e8bcb9; /* Light pink for headers */
+}
+
+#student-details p {
+  font-size: 1.1rem;
+  margin: 5px 0;
+}
+
+/* Button Styles */
+.button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #ae445a; /* Deep red */
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background-color: #4b4376; /* Purple on hover */
+  transform: scale(1.05);
+}
+
+/* Utility Classes */
+.hidden {
+  display: none;
+}

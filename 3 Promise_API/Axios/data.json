@@ -1,0 +1,144 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "Alice",
+      "age": 23,
+      "email": "alice@example.com",
+      "course": "Computer Science"
+    },
+    {
+      "id": 2,
+      "name": "Bob",
+      "age": 25,
+      "email": "bob@example.com",
+      "course": "Mechanical Engineering"
+    },
+    {
+      "id": 3,
+      "name": "Charlie",
+      "age": 22,
+      "email": "charlie@example.com",
+      "course": "Electrical Engineering"
+    },
+    {
+      "id": 4,
+      "name": "David",
+      "age": 24,
+      "email": "david@example.com",
+      "course": "Civil Engineering"
+    },
+    {
+      "id": 5,
+      "name": "Eve",
+      "age": 21,
+      "email": "eve@example.com",
+      "course": "Biotechnology"
+    },
+    {
+      "id": 6,
+      "name": "Frank",
+      "age": 23,
+      "email": "frank@example.com",
+      "course": "Information Technology"
+    },
+    {
+      "id": 7,
+      "name": "Grace",
+      "age": 22,
+      "email": "grace@example.com",
+      "course": "Computer Science"
+    },
+    {
+      "id": 8,
+      "name": "Hannah",
+      "age": 24,
+      "email": "hannah@example.com",
+      "course": "Mechanical Engineering"
+    },
+    {
+      "id": 9,
+      "name": "Ian",
+      "age": 26,
+      "email": "ian@example.com",
+      "course": "Electrical Engineering"
+    },
+    {
+      "id": 10,
+      "name": "Jack",
+      "age": 22,
+      "email": "jack@example.com",
+      "course": "Civil Engineering"
+    },
+    {
+      "id": 11,
+      "name": "Kelly",
+      "age": 23,
+      "email": "kelly@example.com",
+      "course": "Biotechnology"
+    },
+    {
+      "id": 12,
+      "name": "Leo",
+      "age": 25,
+      "email": "leo@example.com",
+      "course": "Information Technology"
+    },
+    {
+      "id": 13,
+      "name": "Mia",
+      "age": 22,
+      "email": "mia@example.com",
+      "course": "Computer Science"
+    },
+    {
+      "id": 14,
+      "name": "Noah",
+      "age": 24,
+      "email": "noah@example.com",
+      "course": "Mechanical Engineering"
+    },
+    {
+      "id": 15,
+      "name": "Olivia",
+      "age": 23,
+      "email": "olivia@example.com",
+      "course": "Electrical Engineering"
+    },
+    {
+      "id": 16,
+      "name": "Paul",
+      "age": 26,
+      "email": "paul@example.com",
+      "course": "Civil Engineering"
+    },
+    {
+      "id": 17,
+      "name": "Quinn",
+      "age": 21,
+      "email": "quinn@example.com",
+      "course": "Biotechnology"
+    },
+    {
+      "id": 18,
+      "name": "Rita",
+      "age": 24,
+      "email": "rita@example.com",
+      "course": "Information Technology"
+    },
+    {
+      "id": 19,
+      "name": "Steve",
+      "age": 22,
+      "email": "steve@example.com",
+      "course": "Computer Science"
+    },
+    {
+      "id": 20,
+      "name": "Tina",
+      "age": 25,
+      "email": "tina@example.com",
+      "course": "Mechanical Engineering"
+    }
+  ]
+}

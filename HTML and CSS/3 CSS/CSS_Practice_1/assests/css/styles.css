@@ -9,53 +9,51 @@ different selectors
 3. group(html element)
 4. universal(*) */
 
-/* group selector */
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: content-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
 }
 
-section{
-    border: 2px solid black;
-    margin-bottom: 20px;
-    padding: 30px;
+section {
+  border: 2px solid black;
+  margin-bottom: 20px;
+  padding: 30px;
 }
 
-h1{
-    border: 2px solid black;
-    background-color: aqua;
-    color: white;
-    margin-bottom: 10px;
-    padding: 10px;
+h1 {
+  border: 2px solid black;
+  background-color: aqua;
+  color: white;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 /* id selector */
-#heading-2{
-    text-decoration: underline;
-    background-color: blueviolet;
+#heading-2 {
+  text-decoration: underline;
+  background-color: blueviolet;
 }
 
 /* class selector */
-.sub-headings{
-    background-color: cadetblue;
+.sub-headings {
+  background-color: cadetblue;
 }
 
-#heading-4{
-    background-color: rgba(0, 201, 188, 0.838);
-    padding: 10px 20px 10px 20px;
-    text-align: center;
+#heading-4 {
+  background-color: rgba(0, 201, 188, 0.838);
+  padding: 10px 20px 10px 20px;
+  text-align: center;
 }
 
-nav{
-    background-color:burlywood;
-    padding: 20px;
+nav {
+  background-color: burlywood;
+  padding: 20px;
 }
 
-nav a{
-    background-color: black;
-    color: white;
-    text-decoration: none;
-    padding: 10px 50px;
+nav a {
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  padding: 10px 50px;
 }
