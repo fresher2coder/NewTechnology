@@ -1,3 +1,10 @@
+fetch("./data.json")
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data.students);
+  })
+  .catch();
+
 // Fetch JSON data using Axios
 axios
   .get("./data.json")

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="shortcut icon" href="./logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>Headr</header>
+    <main>Main</main>
+    <footer>Footer</footer>
+
+    <section class="section-1">
+      <div class="item">Item 1</div>
+      <div class="item">Item 2</div>
+      <div class="item">Item 3</div>
+    </section>
+
+    <nav>
+      <ul>
+        <li><a href="#image">Home</a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+      </ul>
+    </nav>
+
+    <form action="#" onsubmit="validate(event)">
+      <div class="input">
+        <label for="username">Username: </label>
+        <input type="text" name="username" id="username" />
+      </div>
+
+      <div class="input">
+        <label for="password">Password: </label>
+        <input type="password" name="password" id="password" />
+      </div>
+
+      <div class="input">
+        <label for="cPassword">Confirm Password: </label>
+        <input type="password" name="cPassword" id="cPassword" />
+      </div>
+
+      <div id="btn">
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+
+    <script>
+      const pass = document.getElementById("password");
+      const cPass = document.getElementById("cPassword");
+      const result = document.getElementById("result");
+
+      function validate(event) {
+        console.log("validate");
+        event.preventDefault();
+        let span = document.getElementById("error");
+        if (span) span.remove();
+        span = document.createElement("span");
+        span.id = "error";
+        span.style.color = "red";
+
+        if (pass.value === "") {
+          // create span, populate error message, sibling to the input field
+          span.textContent = "password cant be empty";
+          pass.after(span);
+          return;
+        }
+
+        if (cPass.value === "") {
+          // create span, populate error message, sibling to the input field
+          span.textContent = "confirm password cant be empty";
+          cPass.after(span);
+          return;
+        }
+        if (pass.value.trim() === cPass.value.trim()) {
+          span.textContent = "Success";
+          document.getElementById("btn").after(span);
+          return;
+        } else {
+          span.textContent = "No Match";
+          document.getElementById("btn").after(span);
+          return;
+        }
+      }
+    </script>
+  </body>
+</html>

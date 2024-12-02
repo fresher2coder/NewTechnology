@@ -150,18 +150,20 @@
     <div class="container" id="table">
       <table style="width: 100%">
         <colgroup>
-          <col style="width: 10%" />
-          <col style="width: 40%" />
-          <col style="width: 30%" />
-          <col style="width: 15%" />
           <col style="width: 5%" />
+          <col style="width: 45%" />
+          <col style="width: 20%" />
+          <col style="width: 20%" />
+          <col style="width: 10%" />
         </colgroup>
         <thead>
-          <th>S.No</th>
-          <th>Student Name</th>
-          <th>Reg No</th>
-          <th>Dept</th>
-          <th>Institute</th>
+          <tr>
+            <th>S.No</th>
+            <th>Student Name</th>
+            <th>Reg No</th>
+            <th>Dept</th>
+            <th>Institute</th>
+          </tr>
         </thead>
         <tbody>
           <tr>
@@ -169,7 +171,7 @@
             <td>Dineshkumar</td>
             <td>20084016</td>
             <td>CSE</td>
-            <td rowspan="3">Vignan</td>
+            <td rowspan="3">NeoTechnology</td>
           </tr>
           <tr>
             <td>2</td>
@@ -265,7 +267,7 @@
             <label for="country">Country:</label>
             <select id="country" name="country">
               <option value="usa">USA</option>
-              <option value="canada">Canada</option>
+              <option value="canada" selected>Canada</option>
               <option value="uk">UK</option>
               <option value="australia">Australia</option>
             </select>
@@ -309,7 +311,14 @@
           <div class="form-group">
             <!-- Range input (slider) -->
             <label for="volume">Volume:</label>
-            <input type="range" id="volume" name="volume" min="0" max="100" />
+            <input
+              type="range"
+              id="volume"
+              name="volume"
+              min="0"
+              max="100"
+              value="0"
+            />
           </div>
           <div class="form-group">
             <!-- Telephone input -->
