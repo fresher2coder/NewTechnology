@@ -259,6 +259,7 @@ h2 {
 
 /* Button styles */
 .btns {
+  min-width: 250px;
   display: flex;
   justify-content: center;
   gap: 15px;
@@ -293,7 +294,7 @@ h2 {
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  width: 250px;
+  min-width: 250px;
   margin: 20px auto;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   font-family: "Arial", sans-serif;
@@ -330,13 +331,14 @@ h2 {
 
 /* List Card */
 .list-rendering {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 0px 20px;
 }
 
 .list-card {
+  min-height: 50px;
   background-color: white;
   border: 2px solid var(--primary-color);
   border-radius: 8px;
@@ -369,6 +371,52 @@ h2 {
 
 .list-card p:nth-child(even) {
   color: var(--accent-color);
+}
+
+/* General container for the sorting options */
+.sorting label {
+  display: inline-block;
+  margin-right: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+}
+
+.sorting label select {
+  margin-left: 5px;
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+.sorting label select:hover {
+  border-color: #888;
+}
+
+/* Align the sorting controls horizontally */
+.sorting {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.sorting label {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 600px) {
+  .sorting {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 /* profile-styleing*/
