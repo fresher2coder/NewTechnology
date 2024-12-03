@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 /* Root variables for color scheme */
 :root {
   --primary-color: #8e3e63; /* Dark Pinkish */
@@ -146,9 +151,10 @@ h2 {
 /* UserProfile component */
 .profile-card {
   width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  display: grid;
+  gap: 20px;
+  margin: 0 20px;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .userProfile {

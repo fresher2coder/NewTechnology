@@ -2,7 +2,7 @@ import React from "react";
 import { v4 as random } from "uuid";
 import ListCard from "./ListCard";
 
-function ArrayList() {
+function ArrayListAuto() {
   const names = [
     { name: "Dineshkumar" },
     { name: "Divya Dineshkumar", age: 3 },
@@ -29,7 +29,7 @@ function ArrayList() {
   );
 }
 
-export default ArrayList;
+export default ArrayListAuto;
 
 /*
 index as key

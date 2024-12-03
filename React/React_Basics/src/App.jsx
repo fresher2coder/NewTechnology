@@ -15,6 +15,10 @@ import Parent from "./components/props/propsMethod/Parent";
 import UserDashboard from "./components/conditional_rendering/UserDashboard";
 import ArrayList from "./components/list_rendering/ArrayList";
 import ArrayList2 from "./components/list_rendering/demo/ArrayList2";
+import ArrayListID from "./components/list_rendering/ArrayListID";
+import ArrayListAuto from "./components/list_rendering/ArrayListAuto";
+import ProfileForm from "./components/form_handling/ProfileForm";
+import Profile from "./components/form_handling/Profile";
 
 function App() {
   return (
@@ -65,8 +69,13 @@ function App() {
       {/* <UserDashboard isLoggedIn={false} /> */}
 
       {/* list rendering */}
-      {/* <ArrayList /> */}
-      <ArrayList2 />
+      {/* <ArrayList />
+      <ArrayListID />
+      <ArrayListAuto /> */}
+
+      {/* form handling  */}
+
+      <Profile />
     </>
   );
 }
