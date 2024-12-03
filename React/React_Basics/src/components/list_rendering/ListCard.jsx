@@ -1,6 +1,6 @@
 import React from "react";
 
-function ListCard({ id, data }) {
+function ListCard({ id, data, deleteProfile }) {
   return (
     <>
       <div className="list-card">
@@ -8,6 +8,16 @@ function ListCard({ id, data }) {
         <p>Name: {data.name}</p>
         {data.age && <p>Age: {data.age}</p>}
         {data.occupation && <p>Occuputation: {data.occupation}</p>}
+        <div className="btns">
+          <button
+            type="button"
+            onClick={() => {
+              deleteProfile(id);
+            }}
+          >
+            Delete Profile
+          </button>
+        </div>
       </div>
     </>
   );

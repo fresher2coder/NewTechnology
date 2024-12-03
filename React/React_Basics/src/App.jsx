@@ -19,6 +19,7 @@ import ArrayListID from "./components/list_rendering/ArrayListID";
 import ArrayListAuto from "./components/list_rendering/ArrayListAuto";
 import ProfileForm from "./components/form_handling/ProfileForm";
 import Profile from "./components/form_handling/Profile";
+import Counters from "./components/useEffect/Counters";
 
 function App() {
   return (
@@ -74,8 +75,11 @@ function App() {
       <ArrayListAuto /> */}
 
       {/* form handling  */}
+      {/* <Profile /> */}
 
-      <Profile />
+      {/* useEffect  */}
+
+      <Counters />
     </>
   );
 }
