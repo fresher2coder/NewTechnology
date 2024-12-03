@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Assignments</title>
+    <style>
+      /* Base Styling */
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+        color: #333;
+      }
+
+      /* Main Container */
+      .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 40px auto;
+      }
+
+      /*Instuctions */
+      .instructions {
+        background-color: #f4f7f9;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 1.5s ease-in-out;
+        max-width: 800px;
+        margin: 40px auto;
+      }
+
+      .instructions h2 {
+        font-family: "Arial", sans-serif;
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+        font-weight: bold;
+        animation: slideInFromTop 1s ease-out;
+      }
+
+      .instructions ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      .instructions li {
+        font-family: "Arial", sans-serif;
+        font-size: 1rem;
+        line-height: 1.8;
+        color: #555;
+        margin-bottom: 15px;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .instructions li:hover {
+        transform: translateX(10px);
+      }
+
+      .instructions li strong {
+        font-weight: bold;
+        color: #0073e6;
+      }
+
+      /* Fade-in animation */
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      /* Slide-in animation for h2 */
+      @keyframes slideInFromTop {
+        0% {
+          transform: translateY(-30px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      /* Individual Student Section */
+      .student {
+        background-color: #fff;
+        width: 300px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        opacity: 0; /* Initially hidden */
+        transform: translateY(30px); /* Start from below */
+        transition: transform 0.6s ease, opacity 0.6s ease;
+      }
+
+      /* Adding transition to fade and zoom in */
+      .student.appear {
+        opacity: 1; /* Fade in */
+        transform: translateY(0px); /* Move up smoothly */
+      }
+
+      .student:hover {
+        transform: translateY(-10px);
+      }
+
+      .student h1 {
+        font-size: 1.5rem;
+        color: #333;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      .student dl {
+        margin: 10px 0;
+      }
+
+      .student dh {
+        font-weight: bold;
+        color: #666;
+        margin-bottom: 5px;
+      }
+
+      .student dd {
+        font-size: 0.9rem;
+        color: #555;
+        margin-left: 0;
+      }
+
+      .student iframe {
+        width: 100%;
+        border-radius: 8px;
+        margin-top: 15px;
+        border: none;
+        transition: all 0.5s ease;
+      }
+
+      .student:hover iframe {
+        transform: scale(1.1); /* Zoom in effect on iframe */
+      }
+
+      /* Optional: Styling for the iframe to maintain responsiveness */
+      .student iframe {
+        height: 200px;
+      }
+
+      /* Smooth Scroll Behavior */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Footer with Credits */
+      .credits {
+        font-size: 0.9rem;
+        color: #777;
+        text-align: center;
+        padding: 20px;
+        background: #f1f1f1;
+        margin-top: 40px;
+      }
+
+      .credits a {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      .credits a:hover {
+        text-decoration: underline;
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 768px) {
+        .container {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Scrollbar Styling */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="instructions">
+      <h2>Assignment Instructions</h2>
+      <ul>
+        <li>
+          <strong>Design Replication</strong>: Replicate the provided Behance
+          project into a functional webpage using HTML and CSS.
+        </li>
+        <li>
+          <strong>Font and Color References</strong>: Match the fonts and colors
+          used in the Behance design. If fonts or colors are not specified,
+          choose similar alternatives from free resources like Google Fonts and
+          ColorZilla.
+        </li>
+        <li>
+          <strong>Images</strong>: If the design includes images, either take a
+          screenshot from the Behance design or use stock images that match the
+          style and content. Free image resources include Unsplash, Pexels, and
+          Pixabay.
+        </li>
+        <li>
+          <strong>Structure and Layout</strong>: Pay attention to the layout,
+          spacing, and structure. Use semantic HTML tags for accessibility.
+        </li>
+        <li>
+          <strong>Responsiveness(Optional)</strong>: Ensure the webpage is
+          responsive using media queries to adapt to different screen sizes.
+        </li>
+        <li>
+          <strong>Functional Components</strong>: Implement buttons, links, or
+          forms as they appear in the design, including hover effects if
+          applicable.
+        </li>
+        <li>
+          <strong>File Organization</strong>: Submit your HTML and CSS files
+          along with images in an organized folder structure.
+        </li>
+      </ul>
+    </section>
+
+    <div class="container">
+      <section class="student">
+        <h1>Harshavardhan JV</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Design the Home Page</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/193874901?ilo0=1"
+            height="200"
+            allowfullscreen
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+
+      <section class="student">
+        <h1>Manaswini Mula</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Covert the Full Design</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/211642117?ilo0=1"
+            height="200"
+            allowfullscreen
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+      <section class="student">
+        <h1>Naga Sri Chanran Chelluboina</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Design the page</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/211473223?ilo0=1"
+            height="316"
+            width="404"
+            allowfullscreen
+            lazyload
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+      <section class="student">
+        <h1>Yasaswini Korrapati</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Convert the Full Design</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/212171983?ilo0=1"
+            height="316"
+            width="404"
+            allowfullscreen
+            lazyload
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+      <section class="student">
+        <h1>Vijaya Sathvika Vempati</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Convert the Full Design</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/193874901?ilo0=1"
+            height="200"
+            allowfullscreen
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+      <section class="student">
+        <h1>Khushbu Kumari</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Design the Product Page</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/208876753?ilo0=1"
+            height="316"
+            width="404"
+            allowfullscreen
+            lazyload
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+      <section class="student">
+        <h1>Mohana Vineeth Krishna</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Convert the Full Design</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/206671079?ilo0=1"
+            height="316"
+            width="404"
+            allowfullscreen
+            lazyload
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+      <section class="student">
+        <h1>Srihari Patibandla</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Convert the Full Design</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/183259569?ilo0=1"
+            height="316"
+            width="404"
+            allowfullscreen
+            lazyload
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+      <section class="student">
+        <h1>Neelima Karnam</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Convert the Full Design</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/200424001?ilo0=1"
+            height="316"
+            width="404"
+            allowfullscreen
+            lazyload
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+      <section class="student">
+        <h1>Revanth Kumar Suvvari</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Design the Catelog Page</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/193874901?ilo0=1"
+            height="200"
+            allowfullscreen
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+      <section class="student">
+        <h1>Haripriya Rangumudri</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Convert the Full Design</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/202537401?ilo0=1"
+            height="316"
+            width="404"
+            allowfullscreen
+            lazyload
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+      <section class="student">
+        <h1>Kamma Sai Vamsi</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Convert the Full Design</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/203219503?ilo0=1"
+            height="316"
+            width="404"
+            allowfullscreen
+            lazyload
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+      <section class="student">
+        <h1>Supriya Dontula</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Convert the Full Design</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/205177073?ilo0=1"
+            height="316"
+            width="404"
+            allowfullscreen
+            lazyload
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+      <section class="student">
+        <h1>Sai Shanmukha Sangu</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Design the Main Page</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/209378489?ilo0=1"
+            height="316"
+            width="404"
+            allowfullscreen
+            lazyload
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+      <section class="student">
+        <h1>Vivek Kumar</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Design the Main Page</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/213241549?ilo0=1"
+            height="316"
+            width="404"
+            allowfullscreen
+            lazyload
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+      <section class="student">
+        <h1>Sravya Pallem</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Convert the Full Preview</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/210891927?ilo0=1"
+            height="316"
+            width="404"
+            allowfullscreen
+            lazyload
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+      <section class="student">
+        <h1>Kalki Rohit Bavirisetty</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Convert the Full Preview</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/209006025?ilo0=1"
+            height="316"
+            width="404"
+            allowfullscreen
+            lazyload
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+      <section class="student">
+        <h1>Kommina Kumar Chowdary</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Convert the Main Page</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/212220799?ilo0=1"
+            height="316"
+            width="404"
+            allowfullscreen
+            lazyload
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+      <section class="student">
+        <h1>Bolla Ramesh</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Design the Home Page</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/211560063?ilo0=1"
+            height="316"
+            width="404"
+            allowfullscreen
+            lazyload
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+      <section class="student">
+        <h1>Tushar Hirawat</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Design the Main Page</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/210715471?ilo0=1"
+            height="316"
+            width="404"
+            allowfullscreen
+            lazyload
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+      <section class="student">
+        <h1>Pranitha Nuthalapati</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Convert the Design Desktop</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/212890437?ilo0=1"
+            height="316"
+            width="404"
+            allowfullscreen
+            lazyload
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+      <section class="student">
+        <h1>Venkata Ramaraju Pinnamaraju</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Design the Main Page</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/211531827?ilo0=1"
+            height="316"
+            width="404"
+            allowfullscreen
+            lazyload
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+      <section class="student">
+        <h1>D Pujitha</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Convert the Main Design</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/183305455?ilo0=1"
+            height="316"
+            width="404"
+            allowfullscreen
+            lazyload
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+      <section class="student">
+        <h1>Keerthana Sagi</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Convert the Main Design</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/197429235?ilo0=1"
+            height="316"
+            width="404"
+            allowfullscreen
+            lazyload
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+      <section class="student">
+        <h1>Bhaskara Varma Alluru</h1>
+        <dl>
+          <dh>Problem Statement</dh>
+          <dd>Convert the Main Design</dd>
+        </dl>
+        <article>
+          <iframe
+            src="https://www.behance.net/embed/project/182312169?ilo0=1"
+            height="316"
+            width="404"
+            allowfullscreen
+            lazyload
+            frameborder="0"
+            allow="clipboard-write"
+            refererPolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </article>
+      </section>
+    </div>
+
+    <script>
+      // Function to detect when an element is in the viewport
+      function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return rect.top >= 0 && rect.bottom <= window.innerHeight;
+      }
+
+      // Function to add 'appear' class when element is in the viewport
+      function handleScroll() {
+        const students = document.querySelectorAll(".student");
+        students.forEach((student) => {
+          if (isInViewport(student)) {
+            student.classList.add("appear");
+          }
+        });
+      }
+
+      // Event listener for scroll
+      window.addEventListener("scroll", handleScroll);
+
+      // Initial call to handle scroll effect when the page loads
+      handleScroll();
+    </script>
+  </body>
+</html>
