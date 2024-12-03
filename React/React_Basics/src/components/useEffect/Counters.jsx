@@ -2,46 +2,82 @@ import React, { useState } from "react";
 import Counter from "../state/Counter";
 
 function Counters() {
-  const [visibleCounters, setCounters] = useState({
-    counter1: true,
-    counter5: true,
-    counter100: true,
-  });
-  const handleDelete = (event) => {
+  const [counters, setCounters] = useState([
+    { visible: true, number: 1 },
+    { visible: true, number: 5 },
+    { visible: true, number: 10 },
+    { visible: true, number: 20 },
+    { visible: true, number: 50 },
+    { visible: true, number: 100 },
+  ]);
+
+  const handleUpdate = (event, action) => {
     event.preventDefault();
-    console.log(event.target.selectedCounter.value);
-    setCounters((prev) => ({
-      ...prev,
-      [event.target.selectedCounter.value]: false,
-    }));
+
+    // Ensure we get the selected value from the form
+    const selectedValue = parseInt(
+      event.target.elements.selectedCounter.value,
+      10
+    );
+
+    // Toggle visibility based on the action
+    setCounters((prev) =>
+      prev.map((counter) =>
+        counter.number === selectedValue
+          ? { ...counter, visible: action === "add" }
+          : counter
+      )
+    );
   };
 
+  const visibleCounters = counters.filter((counter) => counter.visible);
+  const hiddenCounters = counters.filter((counter) => !counter.visible);
+
   return (
-    <>
-      <section className="counters-container">
-        <section className="counters">
-          {visibleCounters.counter1 && (
-            <Counter initialValue={1} incrementValue={1} />
-          )}
-          {visibleCounters.counter5 && (
-            <Counter initialValue={5} incrementValue={5} />
-          )}
-          {visibleCounters.counter100 && (
-            <Counter initialValue={100} incrementValue={100} />
-          )}
-        </section>
-        <section className="remove-con">
-          <form action="" className="remove-form" onSubmit={handleDelete}>
-            <select name="selectedCounter" id="">
-              <option value="counter1">Counter 1</option>
-              <option value="counter5">Counter 5</option>
-              <option value="counter100">Counter 100</option>
+    <section className="counters-container">
+      <section className="counters">
+        {visibleCounters.map((counter) => (
+          <Counter
+            key={counter.number}
+            initialValue={counter.number}
+            incrementValue={counter.number}
+          />
+        ))}
+      </section>
+      <section className="form-con">
+        {visibleCounters.length > 0 && (
+          <form
+            className="remove-form"
+            onSubmit={(e) => handleUpdate(e, "delete")}
+          >
+            <select name="selectedCounter">
+              {visibleCounters.map((counter) => (
+                <option key={counter.number} value={counter.number}>
+                  Counter {counter.number}
+                </option>
+              ))}
             </select>
             <button type="submit">Delete</button>
           </form>
-        </section>
+        )}
+
+        {hiddenCounters.length > 0 && (
+          <form
+            className="remove-form"
+            onSubmit={(e) => handleUpdate(e, "add")}
+          >
+            <select name="selectedCounter">
+              {hiddenCounters.map((counter) => (
+                <option key={counter.number} value={counter.number}>
+                  Counter {counter.number}
+                </option>
+              ))}
+            </select>
+            <button type="submit">Add</button>
+          </form>
+        )}
       </section>
-    </>
+    </section>
   );
 }
 

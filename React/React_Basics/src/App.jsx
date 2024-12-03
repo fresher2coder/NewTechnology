@@ -20,6 +20,9 @@ import ArrayListAuto from "./components/list_rendering/ArrayListAuto";
 import ProfileForm from "./components/form_handling/ProfileForm";
 import Profile from "./components/form_handling/Profile";
 import Counters from "./components/useEffect/Counters";
+// import CssStyleSheet from "./components/css/CssStyleSheet";
+import CssModule from "./components/css/CSSModule";
+import StyledComponent from "./components/css/StyledComponent";
 
 function App() {
   return (
@@ -78,8 +81,12 @@ function App() {
       {/* <Profile /> */}
 
       {/* useEffect  */}
+      {/* <Counters /> */}
 
-      <Counters />
+      {/* css  */}
+      {/* <CssStyleSheet /> */}
+      {/* <CssModule /> */}
+      <StyledComponent />
     </>
   );
 }
