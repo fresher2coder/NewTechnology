@@ -22,7 +22,8 @@ import Profile from "./components/form_handling/Profile";
 import Counters from "./components/useEffect/Counters";
 // import CssStyleSheet from "./components/css/CssStyleSheet";
 import CssModule from "./components/css/CSSModule";
-import StyledComponent from "./components/css/StyledComponent";
+import StyleComponent from "./components/css/styledComponent/Component";
+import ThemeStyledComponent from "./components/css/theme/ThemeStyledComponent";
 
 function App() {
   return (
@@ -35,7 +36,6 @@ function App() {
         <RightSideBar />
       </section>
       <Footer /> */}
-
       {/* props  */}
       {/* <UserProfile
         name="Dineshkumar"
@@ -48,7 +48,6 @@ function App() {
         age={31}
         address="Greater Chennai"
       /> */}
-
       {/* props as children */}
       {/* <Container name="User Dashboard">
         <h1>Welcome to Dashboard</h1>
@@ -58,35 +57,28 @@ function App() {
         <h1>Settings</h1>
         <p>Adjust your preferences here.</p>
       </Container> */}
-
       {/* state  */}
       {/* <Counter initialValue={0} incrementValue={1} />
       <Counter initialValue={10} incrementValue={10} />
       <Counter initialValue={100} incrementValue={100} /> */}
-
       {/* <MultiCounter /> */}
-
       {/* props as method */}
       {/* <Parent /> */}
-
       {/* conditional rendering */}
       {/* <UserDashboard isLoggedIn={false} /> */}
-
       {/* list rendering */}
       {/* <ArrayList />
       <ArrayListID />
       <ArrayListAuto /> */}
-
       {/* form handling  */}
       {/* <Profile /> */}
-
       {/* useEffect  */}
       {/* <Counters /> */}
-
       {/* css  */}
       {/* <CssStyleSheet /> */}
       {/* <CssModule /> */}
-      <StyledComponent />
+      <StyleComponent />
+      <ThemeStyledComponent />
     </>
   );
 }
