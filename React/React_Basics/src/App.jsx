@@ -25,6 +25,7 @@ import CssModule from "./components/css/CSSModule";
 import StyleComponent from "./components/css/styledComponent/Component";
 import ThemeStyledComponent from "./components/css/theme/ThemeStyledComponent";
 import JokeComponent from "./components/useEffect/apiFetch/JokeComponent";
+import JokeContainer from "./components/useEffect/apiFetch/JokeContainer";
 
 function App() {
   return (
@@ -82,7 +83,7 @@ function App() {
       {/* <ThemeStyledComponent /> */}
 
       {/* api fetch */}
-      <JokeComponent />
+      <JokeContainer />
     </>
   );
 }

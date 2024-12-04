@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-function JokeComponent() {
+function JokeComponent({ id, onDelete }) {
   const [joke, setJoke] = useState({ setup: "", delivery: "" });
 
-  useEffect(() => {
-    console.log("Mounted");
+  const fetchJoke = () => {
     axios
       .get("https://v2.jokeapi.dev/joke/Programming")
       .then((response) => {
@@ -20,9 +19,17 @@ function JokeComponent() {
       .catch((err) => {
         console.log(err);
       });
+  };
 
+  useEffect(() => {
+    console.log("Mounted");
+    fetchJoke();
+    let updateJoke = setInterval(() => {
+      fetchJoke();
+    }, 5000);
     return () => {
       console.log("Un Mounted");
+      clearInterval(updateJoke);
     };
   }, []);
 
@@ -32,7 +39,14 @@ function JokeComponent() {
         <h4>Programming Joke</h4>
         <p>{joke.setup}</p>
         <p>{joke.delivery}</p>
-        <button className="joke-btn">Remove Joke</button>
+        <button
+          className="joke-btn"
+          onClick={() => {
+            onDelete(id);
+          }}
+        >
+          Remove Joke
+        </button>
       </div>
     </>
   );
