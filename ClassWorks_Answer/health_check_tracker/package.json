@@ -1,5 +1,5 @@
 {
-  "name": "vite-project",
+  "name": "health_check_tracker",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,11 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^1.7.8",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "styled-components": "^6.1.13",
-    "uuid": "^11.0.3"
+    "styled-component": "^2.8.0",
+    "styled-components": "^6.1.13"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",

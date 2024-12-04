@@ -18,8 +18,8 @@ export const Title = styled.h1`
 
 // Create a styled button component with dynamic styling based on props
 export const Button = styled.button`
-  background-color: ${(props) => (props.primary ? "#cae6b2" : "#d2649a")};
-  color: ${(props) => (props.primary ? "#8e3e63" : "#f6fab9")};
+  background-color: ${({ primary }) => (primary ? "black" : "white")};
+  color: ${(props) => (props.primary ? "white" : "black")};
   border: none;
   padding: 10px 20px;
   border-radius: 5px;

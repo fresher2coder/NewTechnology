@@ -24,6 +24,7 @@ import Counters from "./components/useEffect/Counters";
 import CssModule from "./components/css/CSSModule";
 import StyleComponent from "./components/css/styledComponent/Component";
 import ThemeStyledComponent from "./components/css/theme/ThemeStyledComponent";
+import JokeComponent from "./components/useEffect/apiFetch/JokeComponent";
 
 function App() {
   return (
@@ -77,8 +78,11 @@ function App() {
       {/* css  */}
       {/* <CssStyleSheet /> */}
       {/* <CssModule /> */}
-      <StyleComponent />
-      <ThemeStyledComponent />
+      {/* <StyleComponent /> */}
+      {/* <ThemeStyledComponent /> */}
+
+      {/* api fetch */}
+      <JokeComponent />
     </>
   );
 }

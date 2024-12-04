@@ -17,7 +17,7 @@ function StyleComponent() {
       <Btns>
         <Button primary>Primary Button</Button>
         <Button>Secondary Button</Button>
-        <SpecialButton>Special Button</SpecialButton>
+        <SpecialButton primary>Special Button</SpecialButton>
       </Btns>
     </Container>
   );

@@ -4,7 +4,7 @@ import { theme } from "./theme"; // Import the theme object
 
 // Styled components using the theme
 const Container = styled.div`
-  background-color: ${(props) => props.theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.background};
   color: ${(props) => props.theme.colors.textSecondary};
   padding: ${(props) => props.theme.spacing.padding};
   text-align: center;
@@ -33,13 +33,15 @@ const Button = styled.button`
 
 function ThemeStyledComponent() {
   return (
-    <ThemeProvider theme={theme}>
-      <Container>
-        <Title>Themed Styled Components</Title>
-        <p>This example demonstrates theming with styled-components.</p>
+    <>
+      <ThemeProvider theme={theme}>
+        <Container>
+          <Title>Themed Styled Components</Title>
+          <p>This example demonstrates theming with styled-components.</p>
+        </Container>
         <Button>Click Me</Button>
-      </Container>
-    </ThemeProvider>
+      </ThemeProvider>
+    </>
   );
 }
 

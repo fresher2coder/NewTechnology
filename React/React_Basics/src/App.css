@@ -23,7 +23,7 @@ body {
   box-sizing: border-box;
   font-family: Arial, sans-serif;
   overflow-x: hidden; /* Prevent horizontal scroll */
-  background-color: #f4f4f4; /* Subtle background color */
+  background-color: var(--input-border-color); /* Subtle background color */
   animation: fadeInBody 1s ease-in-out;
 }
 
