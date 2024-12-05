@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
 // Styled Components
@@ -39,12 +39,14 @@ const HealthLog = ({ logs, deleteLog }) => {
   const groupedLogs = logs.reduce((acc, log) => {
     acc[log.patientId] = acc[log.patientId] || [];
     acc[log.patientId].push(log);
+    console.log(acc);
     return acc;
   }, {});
 
   return (
     <LogContainer>
       <h2>Health Logs</h2>
+
       {Object.keys(groupedLogs).map((patientId) => (
         <LogGroup key={patientId}>
           <h3>Patient ID: {patientId}</h3>
