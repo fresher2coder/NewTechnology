@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finance Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Finance Tracker</h1>
+      <div>
+        <h2>Add Transaction</h2>
+        <form id="transactionForm">
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter transaction name"
+            required
+          />
+          <input
+            type="number"
+            id="amount"
+            placeholder="Enter amount"
+            required
+          />
+          <button type="submit">Add</button>
+        </form>
+      </div>
+
+      <h2>Transactions</h2>
+      <ul id="transactionsList"></ul>
+      <button id="clearAllButton">Clear All Transactions</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

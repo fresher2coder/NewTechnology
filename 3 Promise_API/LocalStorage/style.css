@@ -1,0 +1,115 @@
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #5e1675; /* Dark purple */
+}
+
+h2 {
+  color: #337357; /* Dark Green */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px;
+  font-size: 1rem;
+  background-color: #ee4266; /* Bright pink */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #d03e59; /* Darker pink for hover effect */
+}
+
+.btns {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#transactionsList {
+  list-style-type: none;
+  padding: 0;
+}
+
+#transactionsList li {
+  background-color: #f1f1f1;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#transactionsList button {
+  background-color: #ffd23f; /* Yellow */
+  border-radius: 3px;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+#transactionsList button.edit {
+  background-color: #5e1675; /* Dark purple for Edit */
+}
+
+#transactionsList button.delete {
+  background-color: #ee4266; /* Bright pink for Delete */
+}
+
+#transactionsList button:hover {
+  opacity: 0.8;
+}
+
+/* Input focus styles */
+input:focus {
+  border-color: #337357; /* Green for input focus */
+  outline: none;
+}
+
+#clearAllButton {
+  padding: 10px;
+  background-color: #337357; /* Dark green for Clear All button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+#clearAllButton:hover {
+  background-color: #2b5c45; /* Darker green for hover */
+}
