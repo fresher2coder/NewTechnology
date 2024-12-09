@@ -26,6 +26,7 @@ import StyleComponent from "./components/css/styledComponent/Component";
 import ThemeStyledComponent from "./components/css/theme/ThemeStyledComponent";
 import JokeComponent from "./components/useEffect/apiFetch/JokeComponent";
 import JokeContainer from "./components/useEffect/apiFetch/JokeContainer";
+import PatientHistory from "./components/json-server/PatientHistory";
 
 function App() {
   return (
@@ -83,7 +84,10 @@ function App() {
       {/* <ThemeStyledComponent /> */}
 
       {/* api fetch */}
-      <JokeContainer />
+      {/* <JokeContainer /> */}
+
+      {/* json-server  */}
+      <PatientHistory />
     </>
   );
 }

@@ -464,3 +464,119 @@ body {
     flex-direction: column;
   }
 }
+
+/* register page */
+
+.signup-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.signup-container h1 {
+  text-align: center;
+  color: #5e1675; /* Dark Purple */
+}
+
+.signup-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.signup-container label {
+  font-weight: bold;
+  color: #337357; /* Dark Green */
+}
+
+.signup-container input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.signup-container button {
+  padding: 10px;
+  font-size: 1rem;
+  background-color: #ee4266; /* Bright Pink */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signup-container button:hover {
+  background-color: #d03e59; /* Darker Pink */
+}
+
+.signup-container .message {
+  text-align: center;
+  font-size: 1rem;
+  color: #ee4266; /* Error messages in Bright Pink */
+  margin-top: 10px;
+}
+
+/* dashboard styles */
+.dashboard-container header {
+  background: #5e1675;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.dashboard-container header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.dashboard-container header .logout-btn {
+  background: #ee4266;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.dashboard-container header .logout-btn:hover {
+  background: #d33759;
+}
+
+.dashboard-container main {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-container main h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.dashboard-container main ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dashboard-container main ul li {
+  background: #ffd23f;
+  color: #333;
+  margin: 10px 0;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.dashboard-container main ul li:nth-child(even) {
+  background: #337357;
+  color: #fff;
+}

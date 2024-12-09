@@ -1,0 +1,17 @@
+{
+  "patients": [],
+  "doctors": [
+    {
+      "name": "Dr. Darwin",
+      "specialty": "Cardiology",
+      "id": "60d3"
+    }
+  ],
+  "hospitals": [
+    {
+      "name": "Branch-1",
+      "address": "Chennai",
+      "id": "d6e1"
+    }
+  ]
+}
