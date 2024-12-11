@@ -27,6 +27,8 @@ import ThemeStyledComponent from "./components/css/theme/ThemeStyledComponent";
 import JokeComponent from "./components/useEffect/apiFetch/JokeComponent";
 import JokeContainer from "./components/useEffect/apiFetch/JokeContainer";
 import PatientHistory from "./components/json-server/PatientHistory";
+import InputRef from "./components/refs/InputRef";
+import Timer from "./components/refs/Timer";
 
 function App() {
   return (
@@ -87,7 +89,11 @@ function App() {
       {/* <JokeContainer /> */}
 
       {/* json-server  */}
-      <PatientHistory />
+      {/* <PatientHistory /> */}
+
+      {/* ref */}
+      {/* <InputRef /> */}
+      <Timer />
     </>
   );
 }
