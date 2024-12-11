@@ -10,6 +10,8 @@ import Service1 from "../components/Service1";
 import Service2 from "../components/Service2";
 import Service3 from "../components/Service3";
 import ServicesOverview from "../components/ServicesOverview";
+import Users from "../pages/Users";
+import User from "../components/User";
 
 function AppRouter() {
   const loggedUser = false;
@@ -29,6 +31,10 @@ function AppRouter() {
                 <Route path="service1" element={<Service1 />} />
                 <Route path="service2" element={<Service2 />} />
                 <Route path="service3" element={<Service3 />} />
+              </Route>
+
+              <Route path="/users" element={<Users />}>
+                <Route path=":userId" element={<User />} />
               </Route>
             </Routes>
           </MainLayout>
