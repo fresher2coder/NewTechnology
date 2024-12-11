@@ -92,8 +92,8 @@ function App() {
       {/* <PatientHistory /> */}
 
       {/* ref */}
-      {/* <InputRef /> */}
-      <Timer />
+      <InputRef />
+      {/* <Timer /> */}
     </>
   );
 }
