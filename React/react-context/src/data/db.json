@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Dineshkumar",
+      "age": 34,
+      "occupation": "Trainer",
+      "address": "Chennai"
+    },
+    {
+      "id": 2,
+      "name": "Divya Dineshkumar",
+      "age": 30,
+      "occupation": "Biologist",
+      "address": "Chennai"
+    },
+    {
+      "id": 3,
+      "name": "Darwin Divya Dinesh",
+      "age": 3,
+      "occupation": "KinderGarden",
+      "address": "Chennai"
+    }
+  ]
+}
