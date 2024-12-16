@@ -5,22 +5,28 @@ import Home from "../pages/Home";
 import Users from "../pages/Users";
 import User from "../components/User";
 import { UserProvider } from "../context/UserContext";
+import Dashboard from "../pages/Dashboard";
+import Login from "../pages/Login";
+import { SecuredPage } from "../context/SecuredContext";
 
 function AppRouter() {
   return (
     <>
       <Router>
-        <MainLayout>
-          <UserProvider>
-            <Routes>
-              <Route index element={<Home />} />
-
-              <Route path="/users" element={<Users />}>
-                <Route path=":userId" element={<User />} />
-              </Route>
-            </Routes>
-          </UserProvider>
-        </MainLayout>
+        <SecuredPage>
+          <MainLayout>
+            <UserProvider>
+              <Routes>
+                <Route index element={<Home />} />
+                <Route path="/users" element={<Users />}>
+                  <Route path=":userId" element={<User />} />
+                </Route>
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/login" element={<Login />} />
+              </Routes>
+            </UserProvider>
+          </MainLayout>
+        </SecuredPage>
       </Router>
     </>
   );

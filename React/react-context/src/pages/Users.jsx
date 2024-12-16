@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import User from "../components/User";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { userConsumer } from "../context/UserContext";
 import styled from "styled-components";
+import { useAuth } from "../context/SecuredContext";
 
 const UsersContainer = styled.div`
   padding: 2rem;
@@ -47,7 +48,17 @@ const Error = styled.div`
 `;
 
 function Users() {
+  const { isLoggedIN } = useAuth();
   const { users, loading, error } = userConsumer();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isLoggedIN) {
+      navigate("/login");
+      return;
+    }
+  }, []);
 
   if (loading) return <Loading>Loading...</Loading>;
   if (error) return <Error>{error}</Error>;

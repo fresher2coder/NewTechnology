@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { useAuth } from "../context/SecuredContext";
 
 const StyledHeader = styled.header`
   background-color: rgb(128, 83, 0);
@@ -45,6 +46,7 @@ const StyledNavLink = styled(NavLink)`
 `;
 
 function Header() {
+  const { isLoggedIN } = useAuth();
   return (
     <StyledHeader>
       <Title>Context</Title>
@@ -55,11 +57,29 @@ function Header() {
               Home
             </StyledNavLink>
           </li>
-          <li>
-            <StyledNavLink to="/users" activeClassName="active">
-              Users
-            </StyledNavLink>
-          </li>
+          {isLoggedIN && (
+            <>
+              <li>
+                <StyledNavLink to="/users" activeClassName="active">
+                  Users
+                </StyledNavLink>
+              </li>
+              <li>
+                <StyledNavLink to="/dashboard" activeClassName="active">
+                  Dashboard
+                </StyledNavLink>
+              </li>{" "}
+            </>
+          )}
+          {!isLoggedIN && (
+            <>
+              <li>
+                <StyledNavLink to="/login" activeClassName="active">
+                  Login
+                </StyledNavLink>
+              </li>
+            </>
+          )}
         </NavList>
       </Nav>
     </StyledHeader>

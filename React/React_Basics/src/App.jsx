@@ -30,6 +30,16 @@ import PatientHistory from "./components/json-server/PatientHistory";
 import InputRef from "./components/refs/InputRef";
 import Timer from "./components/refs/Timer";
 
+import Click from "./components/higherOrderComponent/Click";
+import Hover from "./components/higherOrderComponent/Hover";
+import DoubleClick from "./components/higherOrderComponent/DoubleClick";
+
+import Increment from "./components/useReducer/Increment";
+import {
+  CounterContext,
+  CounterProvider,
+} from "./components/useReducer/CounterContext";
+import Decrement from "./components/useReducer/Decrement";
 function App() {
   return (
     <>
@@ -92,8 +102,22 @@ function App() {
       {/* <PatientHistory /> */}
 
       {/* ref */}
-      <InputRef />
+      {/* <InputRef /> */}
       {/* <Timer /> */}
+
+      {/* higher order component  */}
+      {/* <Click initialValue={1} incrementValue={1} name="click" />
+      <Click initialValue={5} incrementValue={5} name="click" />
+      <Hover initialValue={10} incrementValue={10} name="hover" />
+      <Hover initialValue={20} incrementValue={20} name="hover" />
+
+      <DoubleClick initialValue={1} incrementValue={1} name="double click" /> */}
+
+      {/* useReducer  */}
+      <CounterProvider>
+        <Increment />
+        {/* <Decrement /> */}
+      </CounterProvider>
     </>
   );
 }
