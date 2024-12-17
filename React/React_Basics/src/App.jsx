@@ -40,6 +40,9 @@ import {
   CounterProvider,
 } from "./components/useReducer/CounterContext";
 import Decrement from "./components/useReducer/Decrement";
+import MainUI from "./components/screenShot/MainUI";
+import ProductList from "./components/errorHandling/ProductList";
+import CalculateTotal from "./components/errorHandling/CalculateTotal";
 function App() {
   return (
     <>
@@ -114,10 +117,15 @@ function App() {
       <DoubleClick initialValue={1} incrementValue={1} name="double click" /> */}
 
       {/* useReducer  */}
-      <CounterProvider>
+      {/* <CounterProvider>
         <Increment />
-        {/* <Decrement /> */}
-      </CounterProvider>
+        <Decrement />
+      </CounterProvider> */}
+
+      {/* error handling  */}
+      {/* <ProductList /> */}
+
+      <CalculateTotal />
     </>
   );
 }

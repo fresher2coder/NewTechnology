@@ -1,5 +1,5 @@
 {
-  "name": "vite-project",
+  "name": "react-redux",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,20 +7,14 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "json-server": "json-server --watch ./src/data/db.json --port 5000",
-    "proxy": "http://localhost:5000"
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@sentry/react": "^8.45.0",
-    "@sentry/tracing": "^7.114.0",
-    "axios": "^1.7.8",
-    "html2canvas": "^1.4.1",
+    "@reduxjs/toolkit": "^2.5.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-error-boundary": "^4.1.2",
-    "styled-components": "^6.1.13",
-    "uuid": "^11.0.3"
+    "react-redux": "^9.2.0",
+    "redux": "^5.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
@@ -32,7 +26,6 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.12.0",
-    "json-server": "^1.0.0-beta.3",
     "vite": "^6.0.1"
   }
 }

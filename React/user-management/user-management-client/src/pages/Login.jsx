@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   max-width: 500px;
@@ -95,6 +96,9 @@ const LoginComponent = () => {
 
       // Step 3: Login via AuthContext
       login(user); // Pass the user data to context
+      // Redirect to dashboard
+      const navigate = useNavigate();
+      navigate("/dashboard");
     } catch (error) {
       console.error("Login error:", error);
       setError("Something went wrong. Please try again.");

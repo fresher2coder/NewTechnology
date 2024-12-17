@@ -95,7 +95,7 @@ const ModalContainer = styled.div`
 Modal.setAppElement("#root"); // Set the app element for accessibility
 
 function Profile() {
-  const { state, login } = useAuth(); // Access state from AuthContext
+  const { state, updateProfile } = useAuth(); // Access state from AuthContext
   const user = state.user; // Get user from context
   const [formData, setFormData] = useState(user || {});
   const [profilePic, setProfilePic] = useState(user?.profilePic || "");

@@ -9,10 +9,11 @@ export const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
   const login = (user) => dispatch({ type: "LOGIN", payload: user });
+  const updateProfile = (user) => dispatch({ type: "UPDATE", payload: user });
   const logout = () => dispatch({ type: "LOGOUT" });
 
   return (
-    <AuthContext.Provider value={{ state, login, logout }}>
+    <AuthContext.Provider value={{ state, login, logout, updateProfile }}>
       {children}
     </AuthContext.Provider>
   );
