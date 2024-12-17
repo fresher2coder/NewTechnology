@@ -13,8 +13,8 @@ export const useCounter = () => {
   const decrementCount = () => {
     dispatch(decrement());
   };
-  const incrementByAmountCount = () => {
-    dispatch(incrementByAmount());
+  const incrementByAmountCount = (amount) => {
+    dispatch(incrementByAmount(amount));
   };
   return { count, incrementCount, decrementCount, incrementByAmountCount };
 };
