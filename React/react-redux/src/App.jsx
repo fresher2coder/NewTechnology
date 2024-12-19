@@ -6,6 +6,7 @@ import IncrementCounterApp from "./components/counter/IncrementCounterApp";
 import DecrementCounterApp from "./components/counter/DecrementCounterApp";
 import IncrementByAmountApp from "./components/counter/IncreamentByAmountApp";
 import TodoApp from "./components/todo/TodoApp";
+import PatientRoute from "./routes/PatientRoute";
 
 function App() {
   return (
@@ -16,7 +17,10 @@ function App() {
       <IncrementByAmountApp /> */}
 
       {/* todo-list  */}
-      <TodoApp />
+      {/* <TodoApp /> */}
+
+      {/* patient history  */}
+      <PatientRoute />
     </>
   );
 }

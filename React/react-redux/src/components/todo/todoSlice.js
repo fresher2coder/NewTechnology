@@ -8,9 +8,9 @@ const todoSlice = createSlice({
   ],
   reducers: {
     addTodo: (state, action) => {
-      //gen id, create the new obj, push the obj to the array
-      const id = state.length == 0 ? 1 : state[state.length - 1].id + 1;
-      const task = action.payload;
+      const task = action.payload.trim();
+
+      const id = state.length === 0 ? 1 : state[state.length - 1].id + 1;
       state.push({ id, task, completed: false });
     },
 
