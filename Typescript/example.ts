@@ -25,17 +25,36 @@ tuple[0] = 25;
 let tupleIm: readonly [number] = [10];
 
 //interface
+interface Address {
+  street: string;
+  city: string;
+  postalCode: string;
+}
+
 interface Person {
   id: number;
   name: string;
   age: number;
+  hobbies: string[];
+  address: Address; // Using the Address interface as the type
+  greet: () => string;
 }
 
-let dk: Person = {
+const person: Person = {
   id: 1,
-  name: "Dinesh",
-  age: 34,
+  name: "Dineshkumar",
+  age: 25,
+  hobbies: ["painting", "hiking"],
+  address: {
+    street: "456 Elm St",
+    city: "Gotham",
+    postalCode: "67890",
+  },
+  greet: () => "Hello, my name is Dineshkumar!",
 };
+
+console.log(person.address.city); // Output: Gotham
+console.log(person.greet()); // Output: Hello, my name is Jane Doe!
 
 //type - union
 type id = string | number;
