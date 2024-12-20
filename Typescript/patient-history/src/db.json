@@ -1,0 +1,22 @@
+{
+  "patients": [
+    {
+      "id": "2",
+      "name": "Divya Dineshkumar",
+      "age": 28,
+      "history": "Patient has a history of frequent headaches."
+    },
+    {
+      "id": "3",
+      "name": "Darwin Divya Dinesh",
+      "age": 35,
+      "history": "Patient has a history of diabetes."
+    },
+    {
+      "id": "b43a",
+      "name": "D",
+      "age": 23,
+      "history": "23"
+    }
+  ]
+}
